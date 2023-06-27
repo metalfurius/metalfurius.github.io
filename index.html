@@ -152,15 +152,15 @@
                         <p class="mb-5">A fast-paced, geometrically inspired game where the player navigates a three-dimensional landscape at breakneck speeds. An in-game store, powered by scriptable objects, allows for enhancements and power-ups, adding to the strategic depth. Dynamic, moving objects serve as both obstacles and stepping stones, demanding quick reflexes and split-second decision making. The main challenges during development were the accurate physics modeling and maintaining high frame rates, especially with the ever-changing, moving game objects.</p>
                         <p class="mb-5 font-weight-bold ">Balldown features several key components that work together to deliver the desired gameplay experience. <br>Some of the most interesting scripts include:
                         </p>
-                        <blockquote><code>AudioManager: Manages the playback of sound effects and background music in the game.<br><br>
-        LevelSelector: Enables the player to navigate and select levels from the main menu.<br><br>
-        PlayerController: Controls the ball's prefab and model, retrieving data from playerprefs that are modified through the shop with ShopManager.<br><br>
-        PlayerMovement: Manages player inputs and translates them into ball movement.<br><br>
-        ShopItemSO, ShopManager, ShopTemplate: These scripts coordinate the functionality of the shop, including purchasing, selecting, and unlocking balls.<br><br>
-        Views: This script controls the camera perspective change based on player inputs.<br>
-        When the player presses the "A" key or the left arrow, the camera moves to the left, and when "D" key or the right arrow is pressed, it moves to the right.<br><br>
-        If these keys are not pressed, the camera returns to its central position.<br>
-        The script uses the LateUpdate function to smooth the transition between different camera positions and angles, providing a smooth and enjoyable visual experience for the player.<br>
+                        <blockquote><code>AudioManager: Manages the playback of sound effects and background music in the game.<br>
+        LevelSelector: Enables the player to navigate and select levels from the main menu.<br>
+        PlayerController: Controls the ball's prefab and model, retrieving data from playerprefs that are modified through the shop with ShopManager.<br>
+        PlayerMovement: Manages player inputs and translates them into ball movement.<br>
+        ShopItemSO, ShopManager, ShopTemplate: These scripts coordinate the functionality of the shop, including purchasing, selecting, and unlocking balls.<br>
+        Views: This script controls the camera perspective change based on player inputs.
+        When the player presses the "A" key or the left arrow, the camera moves to the left, and when "D" key or the right arrow is pressed, it moves to the right.<br>
+        If these keys are not pressed, the camera returns to its central position.
+        The script uses the LateUpdate function to smooth the transition between different camera positions and angles, providing a smooth and enjoyable visual experience for the player.
 
                                 </code></blockquote>
                         <a class="btn btn-primary" href="https://github.com/metalfurius/Balldown"><i class="fas fa-wrench fa-fw"></i>Scripts</a>
