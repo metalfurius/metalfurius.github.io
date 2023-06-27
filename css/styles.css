@@ -44,6 +44,7 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
+
 article,
 aside,
 figcaption,
@@ -192,11 +193,6 @@ samp {
     font-size: 1em
 }
 
-pre {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    overflow: auto
-}
 
 figure {
     margin: 0 0 1rem
@@ -530,11 +526,6 @@ mark {
     color: #6c757d
 }
 
-code {
-    font-size: 87.5%;
-    color: #e83e8c;
-    word-wrap: break-word
-}
 
 a>code {
     color: inherit
@@ -554,17 +545,23 @@ kbd kbd {
     font-weight: 700
 }
 
-pre {
+code {
+    text-align: left;
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    font-family: monospace;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    padding: 1em 1.5em;
     display: block;
-    font-size: 87.5%;
-    color: #212529
+    white-space: pre-line;
 }
 
-pre code {
-    font-size: inherit;
-    color: inherit;
-    word-break: normal
-}
+
 
 .pre-scrollable {
     max-height: 340px;
@@ -11026,6 +11023,7 @@ a.text-dark:hover {
     font-size: 1.5rem
 }
 
+
 .portfolio-modal .portfolio-modal-title {
     font-size: 2.25rem;
     line-height: 2rem
@@ -11039,7 +11037,7 @@ a.text-dark:hover {
 }
 
 .portfolio-modal .close {
-    position: absolute;
+    position: left;
     z-index: 1;
     right: 1.5rem;
     top: 1rem;
