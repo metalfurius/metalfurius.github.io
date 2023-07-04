@@ -560,6 +560,19 @@ code {
     display: block;
     white-space: pre-line;
 }
+experience {
+    text-align: left;
+    background: #f4f4f4;
+    color: #666;
+    font-family: monospace;
+    font-size: 18px;
+    line-height: 1.25;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    padding: 1em 1.5em;
+    display: block;
+    white-space: pre-line;
+}
 
 
 
@@ -3183,8 +3196,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-light {
-    color: #f8f9fa;
-    border-color: #f8f9fa
+    color: #1abc9c;
+    border-color: #28a745
 }
 
 .btn-outline-light:hover {
@@ -10832,6 +10845,7 @@ a.text-dark:hover {
     justify-content: center;
     align-items: center
 }
+
 
 .divider-custom .divider-custom-line {
     width: 100%;
