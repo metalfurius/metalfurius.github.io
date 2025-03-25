@@ -1,214 +1,265 @@
-// Wait for DOM to fully load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function() {
+
     // Preloader
+    const preloader = document.querySelector('.preloader');
     setTimeout(() => {
-        const preloader = document.querySelector('.preloader');
-        if (preloader) {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
-        }
-    }, 1000);
+        preloader.style.transition = 'opacity 0.5s';
+        preloader.style.opacity = '0';
+        setTimeout(() => preloader.style.display = 'none', 500);
+    }, 1500);
 
-    // Navigation scroll effect
-    const header = document.querySelector('header');
-    const navLinks = document.querySelectorAll('.nav-links a');
 
-    window.addEventListener('scroll', () => {
-        // Add/remove scrolled class to header
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Update active nav link based on scroll position
-        updateActiveNavLink();
-    });
-
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-links');
-
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Close mobile menu when clicking a link
+    // Smooth Scrolling
+    const navLinks = document.querySelectorAll('.sticky-nav a');
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop;
+                window.scrollTo({
+                    top: offsetTop - 60,
+                    behavior: 'smooth'
+                });
+
+                // Highlight active section
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+
+            }
         });
     });
 
-    // Fade-in animations on scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
 
-    const fadeInOnScroll = () => {
-        fadeElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
 
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('visible');
+    // Scroll Animations (Sections)
+    const sections = document.querySelectorAll('.section');
+    const timeline = document.querySelector('.timeline');
+
+
+    function checkVisibility() {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                section.classList.add('show');
             }
         });
-    };
+        const timelinerect = timeline.getBoundingClientRect();
+        if (timelinerect.top < window.innerHeight * 0.8) {
+            timeline.classList.add('show-timeline');
+        }
 
-    // Initial check for elements in view
-    fadeInOnScroll();
-    window.addEventListener('scroll', fadeInOnScroll);
+    }
+    // Check on load and scroll
+    checkVisibility();
+    window.addEventListener('scroll', checkVisibility);
 
-    // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            // Here you would normally send the form data to a server
-            // For demonstration, we'll just log the data and show a success message
-            console.log('Form submitted:', { name, email, message });
-
-            // Clear form
-            contactForm.reset();
-
-            // Show success message (you could create a more sophisticated UI for this)
-            alert('Message sent successfully!');
+    // Dice Roll
+    const diceRollButton = document.getElementById('dice-roll');
+    if (diceRollButton) {
+        diceRollButton.addEventListener('click', function() {
+            const roll = Math.floor(Math.random() * 20) + 1;
+            const resultDiv = document.getElementById('dice-result');
+            resultDiv.innerHTML = `You rolled a <strong>${roll}</strong> on a D20!`;
+            resultDiv.style.opacity = '1';
+            setTimeout(() => {
+                resultDiv.style.opacity = '0';
+            }, 3000); // Fades out after 3 seconds
         });
     }
 
-    const typeWriter = () => {
-        const text = "Software Developer | Game Creator | Dice Maker";
-        const tagline = document.querySelector('.tagline');
-        let i = 0;
 
-        function type() {
-            if (i < text.length) {
-                tagline.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, 50);
-            }
+    function highlightNavLink() {
+        const navLinks = document.querySelectorAll('.sticky-nav a');
+        let currentSection = '';
+
+        // Check if scrolled to the bottom
+        if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50)) {
+            currentSection = 'contact';
+        }
+        // If at the top, default to "Home"
+        else if (window.scrollY < 100) {
+            currentSection = 'home';
+        } else {
+            // Check which section is in view
+            const sections = document.querySelectorAll('.section, .hero');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
         }
 
-        type();
-    };
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-// Call this after preloader finishes
+    window.addEventListener('scroll', highlightNavLink);
+    document.addEventListener('DOMContentLoaded', highlightNavLink);
+
+    // --- Project Modal Functionality ---
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectModals = document.querySelectorAll('.project-modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', function(event) {
+            // Check if the click target is the "Learn More" button or its parent
+            if (event.target.closest('.project-button')) {
+                const projectId = this.dataset.project; // Get the project ID
+                const modal = document.getElementById(projectId);
+                if (modal) {
+                    modal.style.display = 'block';
+                }
+            }
+
+        });
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            this.closest('.project-modal').style.display = 'none';
+        });
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        projectModals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+    });
+
+
+    // Typewriter Effect (Solution 3's approach, but simplified)
+    const taglineElement = document.querySelector('.tagline');
+    const taglineText = "Crafting Engaging Experiences | Junior Software Developer | Unity & Web Enthusiast"; // Full text
+    let charIndex = 0;
+
+    function typeWriter() {
+        if (charIndex < taglineText.length) {
+            taglineElement.innerHTML = taglineText.substring(0, charIndex + 1) + '<span class="cursor"></span>';
+            charIndex++;
+            setTimeout(typeWriter, 50); // Typing speed
+        }
+    }
+    // Start typewriter effect after a delay (after preloader)
     setTimeout(typeWriter, 1500);
 
-// Add animated background with floating shapes
-    const createFloatingElements = () => {
-        const particles = document.querySelector('.particles-container');
-        const shapes = ['square', 'circle', 'triangle'];
-
-        for (let i = 0; i < 20; i++) {
-            const element = document.createElement('div');
-            element.classList.add('floating-shape');
-            element.classList.add(shapes[Math.floor(Math.random() * shapes.length)]);
-
-            // Random positions and delays
-            element.style.left = `${Math.random() * 100}%`;
-            element.style.top = `${Math.random() * 100}%`;
-            element.style.animationDelay = `${Math.random() * 5}s`;
-            element.style.animationDuration = `${Math.random() * 10 + 10}s`;
-
-            particles.appendChild(element);
-        }
-    };
-
-    setTimeout(createFloatingElements, 1000);
-
-    // Dice roll functionality
-    const diceBtn = document.getElementById('dice-btn');
-    const diceResult = document.getElementById('dice-result');
-
-    if (diceBtn && diceResult) {
-        diceBtn.addEventListener('click', () => {
-            // Animate the dice
-            diceBtn.classList.add('rolling');
-
-            // Generate random number between 1 and 20 (D20)
-            const rollResult = Math.floor(Math.random() * 20) + 1;
-
-            // Update result after a short delay
-            setTimeout(() => {
-                diceResult.innerHTML = `<span>You rolled a ${rollResult}!</span>`;
-                diceResult.classList.add('show');
-                diceBtn.classList.remove('rolling');
-
-                // Hide result after 3 seconds
-                setTimeout(() => {
-                    diceResult.classList.remove('show');
-                }, 3000);
-            }, 600);
-        });
-    }
-
-    // Helper function to update active nav link
-    function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section');
-        const scrollPosition = window.scrollY;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
+    // particles.js initialization (after preloader)
+    setTimeout(() => {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,  // Adjust number of particles
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
                     }
-                });
-            }
+                },
+                "color": {
+                    "value": "#ffffff" // Particle color
+                },
+                "shape": {
+                    "type": "circle", // Particle shape
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.5, // Particle opacity
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,  // Particle size
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150, // Distance between linked particles
+                    "color": "#ffffff", // Line color
+                    "opacity": 0.4,    // Line opacity
+                    "width": 1       // Line width
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,     // Particle movement speed
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onHover": {
+                        "enable": true,
+                        "mode": "repulse" // Repulse on hover
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"  // Push on click
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 100, // Repulse distance
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
         });
-    }
-});
+    }, 1500); // Delay to ensure preloader is gone
 
-// Add CSS for fade-in animations (if not already in styles.css)
-document.head.insertAdjacentHTML('beforeend', `
-  <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .dice-btn.rolling {
-      animation: roll 0.6s ease;
-    }
-    .dice-result {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
-    }
-    .dice-result.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @keyframes roll {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-`);
+});

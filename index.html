@@ -3,241 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Javier | Software Developer</title>
+  <title>Francisco Javier - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-<!-- Preloader -->
+
 <div class="preloader">
-  <div class="loader"></div>
+  <div class="spinner"></div>
 </div>
 
-<!-- Header -->
-<header>
-  <nav id="navbar">
-    <div class="logo">FJ</div>
-    <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-  </nav>
-</header>
+<nav class="sticky-nav">
+  <div class="nav-name">CodeOverdose</div>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<!-- Home Section -->
 <section id="home" class="hero">
-  <div class="particles-container"></div>
+  <div id="particles-js" class="particles-container"></div>
   <div class="hero-content">
-    <h1 class="fade-in">Francisco Javier</h1>
-    <p class="tagline"></p>
-    <a href="#projects" class="btn primary-btn">View My Work</a>
+    <h1>Francisco Javier</h1>
+    <p class="tagline">Crafting Engaging Experiences | Junior Software Developer | Unity & Web Enthusiast</p>
+    <a href="https://raw.githubusercontent.com/metalfurius/metalfurius.github.io/main/CV%20Francisco%20Javier%20Hern%C3%A1ndez%20Murillo%20English.pdf" class="button button-primary">Download CV</a>
   </div>
 </section>
 
-<!-- About Section -->
 <section id="about" class="section">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-      <div class="about-text fade-in">
-        <p>Hi, I'm Francisco Javier, a passionate software developer with a unique blend of game development and web technologies expertise. With a strong foundation in C# from Unity development, I'm now diving deep into JavaScript, HTML, and CSS to create engaging web experiences.</p>
-        <p>My background in interactive development and UI/UX design allows me to approach projects with a user-centered mindset. When I'm not coding, you can find me crafting custom resin dice or immersed in a D&D campaign.</p>
-      </div>
-      <div class="about-icon">
-        <svg class="dice-icon" viewBox="0 0 512 512" width="150" height="150">
-          <path d="M440.5 345.8L408.1 327c13.9-11.6 23.3-30 20.8-48.7-3.3-25-32.6-42.5-56-33.4-23.4 9.1-32.3 37.9-18.5 59.4-50.7-11.2-92.5-37.1-121.9-73.5 10.6-15.8 13.2-35.9 3.7-53.6-11.3-21.1-36.1-28.7-56.6-21.4-22.8 8.2-34.5 32.1-29.1 55.7-20.5-1.6-42-2.8-62.2 0.3-15.8 2.2-31.3 6.5-45.7 12.1-10.9-18.2-35.8-24.7-55.4-16.4-21 8.9-33 35.5-21.4 55.6 4.9 8.5 12.3 15.5 21.5 19.7-16.5 25.7-26.9 57.9-21 85.4 4.7 21.7 21.5 36.9 43.2 37.6 15.8 0.5 31.8-5.9 41.5-18.1 18 13.8 39.6 24.5 63.1 31.8 24.9 7.9 52.9 12.8 81.3 14v63.8c0 4.8 6.2 6.9 9.2 3.2L360 453.3l19.7 20.1c3 3.1 8.1 0.9 8.1-3.3l-0.3-50.8c13.4-2.1 26.5-5.5 39-9.9 12.2-4.3 23.9-9.7 34.7-15.8 13.3 21.8 44.6 23.8 58.5 3.9 15.7-22.3 3.2-53.4-23.2-59.6-18.4-4.3-39.7 1.5-50.2 18.9zm-35.8 1.8c3.8 7.1 9.4 12.8 16.7 16.3-5.8 3.1-11.9 5.9-18.2 8.3-8.5 3.3-17.5 6.1-26.8 8.4l-0.8-42.3c10 3.4 20.6 6.5 31.9 8.7-0.8 0.2-1.5 0.4-2.3 0.7-0.3-0.1-0.6-0.1-0.9 0.1-0.3 0.2-0.5 0.4-0.6 0.8-0.1 0.4 0 0.7 0.3 1 0.3 0.3 0.6 0.4 1 0.3 0.3-0.1 0.6-0.4 0.7-0.8 0-0.1 0-0.2 0-0.3-0.3-0.4-0.7-0.6-1.1-0.4h-0.1c-0.7-0.3-1.3-0.7-1.8-1.1 0.7 0.1 1.3 0.1 2 0.2z" />
-        </svg>
-      </div>
+  <div class="section-content about-content">
+    <div class="about-logo">
+      <i class="fas fa-dice-d20"></i>
+    </div>
+    <h2>About Me</h2>
+    <div class="about-text">
+      <p>Hi, I'm Francisco Javier, a passionate software developer blending game development with web technologies. My journey began with a curiosity for creating worlds, leading me to master C# in Unity and build interactive experiences.</p>
+      <p>Now, I’m diving into web development, mastering JavaScript, HTML, and CSS to craft intuitive web applications. My game design roots inspire me to bring creativity and interactivity to every project.</p>
+      <p>My approach is user-centered—I strive for interfaces that are both beautiful and functional. Outside of coding, I craft custom resin dice and lose myself in D&D campaigns, fueling my creativity and sharpening my problem-solving skills.</p>
     </div>
   </div>
 </section>
 
-<!-- Skills Section -->
 <section id="skills" class="section">
-  <div class="container">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-container">
-      <div class="skill-category fade-in">
-        <h3>Web Development</h3>
-        <div class="skill-item">
-          <h4>JavaScript</h4>
-          <p>Used JavaScript to build interactive features in my Task Management Application.</p>
-        </div>
-        <div class="skill-item">
-          <h4>HTML5</h4>
-          <p>Created semantic and accessible markup for all my web projects.</p>
-        </div>
-        <div class="skill-item">
-          <h4>CSS3</h4>
-          <p>Implemented responsive designs and animations using modern CSS.</p>
-        </div>
+  <div class="section-content">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill-category">
+        <h3><i class="fas fa-code skill-icon"></i> Web Development</h3>
+        <ul>
+          <li><strong>JavaScript:</strong> Used to build interactive features in my Task Management Application.</li>
+          <li><strong>HTML5:</strong> Proficient in creating semantic and accessible web structures.</li>
+          <li><strong>CSS3:</strong> Skilled in styling and layout techniques, including Flexbox and Grid.</li>
+        </ul>
       </div>
-
-      <div class="skill-category fade-in">
-        <h3>Programming Languages</h3>
-        <div class="skill-item">
-          <h4>C#</h4>
-          <p>Leveraged C# to develop VR interactions in Unity.</p>
-        </div>
-        <div class="skill-item">
-          <h4>Python</h4>
-          <p>Used Python for automation scripts and data processing.</p>
-        </div>
-        <div class="skill-item">
-          <h4>Java</h4>
-          <p>Built Android applications using Java and the Android SDK.</p>
-        </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-gamepad skill-icon"></i> Programming Languages</h3>
+        <ul>
+          <li><strong>C#:</strong> Leveraged C# to develop VR interactions in Unity.</li>
+          <li><strong>Python:</strong> Experienced in scripting and automation.</li>
+          <li><strong>Java:</strong> Familiar with object-oriented programming concepts.</li>
+        </ul>
       </div>
-
-      <div class="skill-category fade-in">
-        <h3>Tools & Platforms</h3>
-        <div class="skill-item">
-          <h4>Git</h4>
-          <p>Version control for all projects with branching strategies.</p>
-        </div>
-        <div class="skill-item">
-          <h4>Firebase</h4>
-          <p>Integrated Firebase for secure data persistence in a mobile game.</p>
-        </div>
-        <div class="skill-item">
-          <h4>Unity</h4>
-          <p>Developed VR experiences and games using Unity 3D.</p>
-        </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-tools skill-icon"></i> Tools & Platforms</h3>
+        <ul>
+          <li><strong>Git:</strong> Proficient in version control using Git and GitHub.</li>
+          <li><strong>Firebase:</strong> Integrated Firebase for secure data persistence in a mobile game.</li>
+          <li><strong>Unity:</strong> Extensive experience in game and VR development using Unity.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Projects Section -->
 <section id="projects" class="section">
-  <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="https://via.placeholder.com/600x400/252934/0D81EC?text=VR+Training+App" alt="VR Training Application">
-        </div>
-        <div class="project-info">
-          <h3>VR Training Application</h3>
-          <p>Built immersive VR features including tutorials, animations, and UI systems at Visionary Tool.</p>
-          <div class="project-tech">
-            <span>Unity</span>
-            <span>C#</span>
-            <span>VR</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn secondary-btn">View Demo</a>
-            <a href="#" class="btn secondary-btn">View Code</a>
-          </div>
-        </div>
+  <div class="section-content">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <!-- Project Cards (Structure from Solution 3, Content from Prompt & Solution 3) -->
+      <div class="project-card" data-project="project-1">
+        <img src="placeholder.jpg" alt="Personal Portfolio Website">
+        <h3>Personal Portfolio Website</h3>
+        <p>Responsive design showcasing my projects...</p>
+        <button class="button button-secondary project-button">Learn More</button>
       </div>
 
-      <!-- Project 2 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="https://via.placeholder.com/600x400/252934/0D81EC?text=Task+Management+App" alt="Task Management Application">
-        </div>
-        <div class="project-info">
-          <h3>Task Management Application</h3>
-          <p>Interactive web app with local storage and Firestore integration for managing daily tasks.</p>
-          <div class="project-tech">
-            <span>JavaScript</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Firebase</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn secondary-btn">View Demo</a>
-            <a href="#" class="btn secondary-btn">View Code</a>
-          </div>
-        </div>
+      <div class="project-card" data-project="project-2">
+        <img src="placeholder.jpg" alt="Task Management Application">
+        <h3>Task Management Application</h3>
+        <p>Interactive web app with local storage...</p>
+        <button class="button button-secondary project-button">Learn More</button>
       </div>
 
-      <!-- Project 3 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="https://via.placeholder.com/600x400/252934/0D81EC?text=PC+Game+Launcher" alt="PC Game Launcher">
-        </div>
-        <div class="project-info">
-          <h3>PC Game Launcher</h3>
-          <p>Revamped the launcher interface for better accessibility and UX at Visionary Tool.</p>
-          <div class="project-tech">
-            <span>C#</span>
-            <span>.NET</span>
-            <span>UI/UX</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn secondary-btn">View Demo</a>
-            <a href="#" class="btn secondary-btn">View Code</a>
-          </div>
-        </div>
+      <div class="project-card" data-project="project-3">
+        <img src="placeholder.jpg" alt="VR Training Application">
+        <h3>VR Training Application</h3>
+        <p>Built immersive VR features including...</p>
+        <button class="button button-secondary project-button">Learn More</button>
       </div>
 
-      <!-- Project 4 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="https://via.placeholder.com/600x400/252934/0D81EC?text=Mobile+Game+Save+System" alt="Mobile Game Save System">
-        </div>
-        <div class="project-info">
-          <h3>Mobile Game Save System</h3>
-          <p>Implemented Firebase for secure data persistence in a mobile game at FunTech Rocket.</p>
-          <div class="project-tech">
-            <span>Unity</span>
-            <span>C#</span>
-            <span>Firebase</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn secondary-btn">View Demo</a>
-            <a href="#" class="btn secondary-btn">View Code</a>
-          </div>
-        </div>
+      <div class="project-card" data-project="project-4">
+        <img src="placeholder.jpg" alt="PC Game Launcher">
+        <h3>PC Game Launcher</h3>
+        <p>Revamped the launcher interface for...</p>
+        <button class="button button-secondary project-button">Learn More</button>
       </div>
 
-      <!-- Project 5 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="https://via.placeholder.com/600x400/252934/0D81EC?text=Portfolio+Website" alt="Portfolio Website">
-        </div>
-        <div class="project-info">
-          <h3>Personal Portfolio Website</h3>
-          <p>Responsive design showcasing my projects using HTML, CSS, and JavaScript.</p>
-          <div class="project-tech">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn secondary-btn">View Demo</a>
-            <a href="#" class="btn secondary-btn">View Code</a>
-          </div>
-        </div>
+      <div class="project-card" data-project="project-5">
+        <img src="placeholder.jpg" alt="Mobile Game Save System">
+        <h3>Mobile Game Save System</h3>
+        <p>Implemented Firebase for secure data...</p>
+        <button class="button button-secondary project-button">Learn More</button>
       </div>
+    </div>
+
+    <!-- Project Modals (Structure & Content from Solution 3) -->
+    <div class="project-modal" id="project-1">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>Personal Portfolio Website</h2>
+        <img src="placeholder.jpg" alt="Project 1 Detail">
+        <p>This website itself is a project!  Built with HTML, CSS, and JavaScript, it showcases my ability to create responsive, modern web designs. Key features include:</p>
+        <ul>
+          <li>Smooth scrolling navigation</li>
+          <li>Interactive project cards with modals</li>
+          <li>Scroll-triggered animations</li>
+          <li>Responsive design for mobile and desktop</li>
+          <li>Integration with Font Awesome for icons</li>
+        </ul>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Font Awesome</p>
+        <a href="#" class="button button-primary" target="_blank">Visit Website</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a>  </div>
+    </div>
+
+    <div class="project-modal" id="project-2">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>Task Management Application</h2>
+        <img src="placeholder.jpg" alt="Project 2 Detail">
+        <p>A web application built with JavaScript to manage tasks efficiently.  It utilizes local storage to persist data and offers a clean, intuitive user interface. I later integrated Firebase for enhanced data management.</p>
+        <ul>
+          <li>Add, edit, and delete tasks</li>
+          <li>Mark tasks as complete</li>
+          <li>Local storage persistence</li>
+          <li>Firestore integration (optional)</li>
+          <li>Responsive design</li>
+        </ul>
+        <p><strong>Technologies:</strong> JavaScript, HTML, CSS, Local Storage, (Optional) Firebase Firestore</p>
+        <a href="#" class="button button-primary" target="_blank">View Demo</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a> </div>
+    </div>
+
+    <div class="project-modal" id="project-3">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>VR Training Application (Visionary Tool)</h2>
+        <img src="placeholder.jpg" alt="Project 3 Detail">
+        <p>Developed interactive VR features for a training application, focusing on user tutorials, animations, and UI systems. Created an immersive experience for users to learn and practice various tasks.</p>
+        <ul>
+          <li>Interactive VR tutorials</li>
+          <li>Custom animations and UI elements</li>
+          <li>User-friendly interface design</li>
+          <li>Optimized for performance in VR</li>
+        </ul>
+        <p><strong>Technologies:</strong> Unity, C#, VR Development</p>
+        <a href="#" class="button button-primary" target="_blank">Watch Demo Video</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a> </div>
+    </div>
+
+    <div class="project-modal" id="project-4">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>PC Game Launcher (Visionary Tool)</h2>
+        <img src="placeholder.jpg" alt="Project 4 Detail">
+        <p>Revamped the user interface of a PC game launcher, improving its accessibility and overall user experience.  Focused on creating a modern, visually appealing design with clear navigation.</p>
+        <ul>
+          <li>Modernized UI design</li>
+          <li>Improved navigation and layout</li>
+          <li>Enhanced accessibility features</li>
+          <li>User experience optimization</li>
+        </ul>
+        <p><strong>Technologies:</strong>  Unity, C#, UI/UX Design</p>
+        <a href="#" class="button button-primary" target="_blank">View Screenshots</a>  <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a> </div>
+    </div>
+
+    <div class="project-modal" id="project-5">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>Mobile Game Save System (FunTech Rocket)</h2>
+        <img src="placeholder.jpg" alt="Project 5 Detail">
+        <p>Implemented a robust save system for a mobile game using Firebase.  This ensured secure data persistence and allowed users to save their progress across multiple devices.</p>
+        <ul>
+          <li>Firebase integration for data persistence</li>
+          <li>Secure data storage and retrieval</li>
+          <li>Cross-device synchronization</li>
+          <li>Error handling and data validation</li>
+        </ul>
+        <p><strong>Technologies:</strong>  Unity, C#, Firebase Realtime Database</p>
+        <a href="#" class="button button-primary" target="_blank">Play Game (Link to App Store)</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a>  </div>
     </div>
   </div>
 </section>
 
-<!-- Experience Section -->
 <section id="experience" class="section">
-  <div class="container">
-    <h2 class="section-title">Experience</h2>
+  <div class="section-content">
+    <h2>Experience</h2>
     <div class="timeline">
-      <div class="timeline-item fade-in">
+      <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">Nov 2023 - May 2024</div>
         <div class="timeline-content">
           <h3>VR Unity Developer</h3>
-          <h4>Visionary Tool</h4>
+          <p class="timeline-company">Visionary Tool (Nov 2023 - May 2024)</p>
           <ul>
             <li>Developed interactive UI systems and real-time network features.</li>
             <li>Created user-friendly interfaces for VR and desktop platforms.</li>
@@ -245,13 +227,11 @@
           </ul>
         </div>
       </div>
-
-      <div class="timeline-item fade-in">
+      <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">Apr 2023 - Jun 2023</div>
         <div class="timeline-content">
           <h3>Unity Developer Intern</h3>
-          <h4>FunTech Rocket</h4>
+          <p class="timeline-company">FunTech Rocket (Apr 2023 - Jun 2023)</p>
           <ul>
             <li>Implemented event-driven programming patterns.</li>
             <li>Integrated Firebase for authentication and data persistence.</li>
@@ -263,69 +243,25 @@
   </div>
 </section>
 
-<!-- Contact Section -->
 <section id="contact" class="section">
-  <div class="container">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="contact-container">
-      <form id="contact-form" class="contact-form fade-in">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn primary-btn">Send Message</button>
-      </form>
-
-      <div class="social-links fade-in">
-        <a href="https://linkedin.com" target="_blank">
-          <i class="feather-icon" data-feather="linkedin"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com" target="_blank">
-          <i class="feather-icon" data-feather="github"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="mailto:contact@example.com">
-          <i class="feather-icon" data-feather="mail"></i>
-          <span>Email</span>
-        </a>
-        <a href="https://artstation.com" target="_blank">
-          <i class="feather-icon" data-feather="image"></i>
-          <span>ArtStation</span>
-        </a>
-      </div>
+  <div class="section-content">
+    <h2>Contact</h2>
+    <div class="contact-success">Message Sent!</div>
+    <div class="social-links-footer">
+      <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.codeoverdose.es/" target="_blank" aria-label="CodeOverdose"><i class="fas fa-code"></i></a>
+      <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.artstation.com/" target="_blank" aria-label="ArtStation"><i class="fab fa-artstation"></i></a>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
-  <div class="container">
-    <p>&copy; 2024 Francisco Javier</p>
-    <button id="dice-btn" class="dice-btn" aria-label="Roll the Dice">
-      <i class="fas fa-dice-d20"></i>
-    </button>
-    <div id="dice-result" class="dice-result">
-      <span>Roll the dice!</span>
-    </div>
-  </div>
+  <p>© 2025 Francisco Javier Hernández</p>
+  <div id="dice-result"></div>
+  <button id="dice-roll" class="dice-roll-button">Roll the Dice</button>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="script.js"></script>
-<script src="https://unpkg.com/feather-icons"></script>
-<script>
-  // Initialize Feather icons
-  document.addEventListener('DOMContentLoaded', () => {
-    feather.replace();
-  });
-</script>
 </body>
 </html>
