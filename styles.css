@@ -720,3 +720,209 @@ footer {
         font-size: 1.25rem; /* Further reduce font size */
     }
 }
+
+/* Social Media Circle Design */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center; /* Center the rows horizontally */
+    margin-top: 2rem; /* Space below heading */
+}
+
+.up, .down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card1, .card2, .card3, .card4 {
+    width: 90px;
+    height: 90px;
+    background: var(--surface-color); /* Matches your dark theme */
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.card1 {
+    border-radius: 90px 5px 5px 5px; /* Top-left quarter circle */
+}
+
+.card2 {
+    border-radius: 5px 90px 5px 5px; /* Top-right quarter circle */
+}
+
+.card3 {
+    border-radius: 5px 5px 5px 90px; /* Bottom-left quarter circle */
+}
+
+.card4 {
+    border-radius: 5px 5px 90px 5px; /* Bottom-right quarter circle */
+}
+
+/* Icon styling */
+.card1 i, .card2 i, .card3 i, .card4 i {
+    font-size: 30px;
+}
+
+/* Initial icon colors (brand colors) */
+.card1 i {
+    color: #0077B5; /* LinkedIn blue */
+    transform: translate(10px, 10px);
+}
+
+.card2 i {
+    color: #0366d6; /* GitHub blue for the initial icon color */
+    transform: translate(-10px, 10px);
+}
+
+.card3 i {
+    color: #D44638; /* Email, inspired by Gmail red */
+    transform: translate(10px, -10px);
+}
+
+.card4 i {
+    color: #13AFF0; /* ArtStation blue */
+    transform: translate(-10px, -10px);
+}
+
+/* Hover effects */
+.card1:hover {
+    transform: scale(1.1);
+    background-color: #0077B5;
+}
+
+.card1:hover i {
+    color: var(--text-color); /* White on hover */
+}
+
+.card2:hover {
+    transform: scale(1.1);
+    background-color: #0366d6; /* Background turns GitHub blue on hover */
+}
+
+.card2:hover i {
+    color: #fff; /* Icon turns white on hover for visibility */
+}
+
+.card3:hover {
+    transform: scale(1.1);
+    background-color: #D44638;
+}
+
+.card3:hover i {
+    color: var(--text-color);
+}
+
+.card4:hover {
+    transform: scale(1.1);
+    background-color: #13AFF0;
+}
+
+.card4:hover i {
+    color: var(--text-color);
+}/* Social Media Circle Design */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center; /* Center the rows horizontally */
+    margin-top: 2rem; /* Space below heading */
+}
+
+.up, .down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card1, .card2, .card3, .card4 {
+    width: 90px;
+    height: 90px;
+    background: var(--surface-color); /* Matches your dark theme */
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.card1 {
+    border-radius: 90px 5px 5px 5px; /* Top-left quarter circle */
+}
+
+.card2 {
+    border-radius: 5px 90px 5px 5px; /* Top-right quarter circle */
+}
+
+.card3 {
+    border-radius: 5px 5px 5px 90px; /* Bottom-left quarter circle */
+}
+
+.card4 {
+    border-radius: 5px 5px 90px 5px; /* Bottom-right quarter circle */
+}
+
+/* Icon styling */
+.card1 i, .card2 i, .card3 i, .card4 i {
+    font-size: 30px;
+}
+
+/* Initial icon colors (brand colors) */
+.card1 i {
+    color: #0077B5; /* LinkedIn blue */
+}
+
+.card2 i {
+    color: var(--primary-color); /* CodeOverdose uses your primary blue */
+}
+
+.card3 i {
+    color: #D44638; /* Email, inspired by Gmail red */
+}
+
+.card4 i {
+    color: #13AFF0; /* ArtStation blue */
+}
+
+/* Hover effects */
+.card1:hover {
+    transform: scale(1.1);
+    background-color: #0077B5;
+}
+
+.card1:hover i {
+    color: var(--text-color); /* White on hover */
+}
+
+.card2:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+}
+
+.card2:hover i {
+    color: var(--text-color);
+}
+
+.card3:hover {
+    transform: scale(1.1);
+    background-color: #D44638;
+}
+
+.card3:hover i {
+    color: var(--text-color);
+}
+
+.card4:hover {
+    transform: scale(1.1);
+    background-color: #13AFF0;
+}
+
+.card4:hover i {
+    color: var(--text-color);
+}
