@@ -21,13 +21,17 @@
 <nav class="sticky-nav">
   <div class="nav-name">CodeOverdose</div>
   <ul>
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#home" class="active" data-translate="nav-home">Home</a></li>
+    <li><a href="#about" data-translate="nav-about">About</a></li>
+    <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
+    <li><a href="#projects" data-translate="nav-projects">Personal Projects</a></li>
+    <li><a href="#experience" data-translate="nav-experience">Experience</a></li>
+    <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
   </ul>
+  <div class="language-switcher">
+    <button id="lang-en" class="lang-button active" data-lang="en">EN</button>
+    <button id="lang-es" class="lang-button" data-lang="es">ES</button>
+  </div>
 </nav>
 
 <section id="home" class="hero">
@@ -39,7 +43,7 @@
     <span class="circle" aria-hidden="true">
       <span class="icon arrow"></span>
     </span>
-      <span class="button-text">Download CV</span>
+      <span class="button-text" data-translate="download-cv">Download CV</span>
     </a>
   </div>
 </section>
@@ -49,41 +53,41 @@
     <div class="about-logo">
       <i class="fas fa-dice-d20"></i>
     </div>
-    <h2>About Me</h2>
+    <h2 data-translate="about-title">About Me</h2>
     <div class="about-text">
-      <p>Hi, I'm Francisco Javier, a passionate software developer blending game development with web technologies. My journey began with a curiosity for creating worlds, leading me to master C# in Unity and build interactive experiences.</p>
-      <p>Now, I’m diving into web development, mastering JavaScript, HTML, and CSS to craft intuitive web applications. My game design roots inspire me to bring creativity and interactivity to every project.</p>
-      <p>My approach is user-centered—I strive for interfaces that are both beautiful and functional. Outside of coding, I craft custom resin dice and lose myself in D&D campaigns, fueling my creativity and sharpening my problem-solving skills.</p>
+      <p data-translate="about-p1">Hi, I'm Francisco Javier, a passionate software developer blending game development with web technologies. My journey began with a curiosity for creating worlds, leading me to master C# in Unity and build interactive experiences.</p>
+      <p data-translate="about-p2">Now, I’m diving into web development, mastering JavaScript, HTML, and CSS to craft intuitive web applications. My game design roots inspire me to bring creativity and interactivity to every project.</p>
+      <p data-translate="about-p3">My approach is user-centered—I strive for interfaces that are both beautiful and functional. Outside of coding, I craft custom resin dice and lose myself in D&D campaigns, fueling my creativity and sharpening my problem-solving skills.</p>
     </div>
   </div>
 </section>
 
 <section id="skills" class="section">
   <div class="section-content">
-    <h2>Skills</h2>
+    <h2 data-translate="skills-title">Skills</h2>
     <div class="skills-list">
       <div class="skill-category">
-        <h3><i class="fas fa-code skill-icon"></i> Web Development</h3>
+        <h3><i class="fas fa-code skill-icon"></i> <span data-translate="skill-web-title">Web Development</span></h3>
         <ul>
-          <li><strong>JavaScript:</strong> Used to build interactive features in my Task Management Application.</li>
-          <li><strong>HTML5:</strong> Proficient in creating semantic and accessible web structures.</li>
-          <li><strong>CSS3:</strong> Skilled in styling and layout techniques, including Flexbox and Grid.</li>
+          <li data-translate="skill-web-js"><strong>JavaScript:</strong> Used to build interactive features in my Task Management Application.</li>
+          <li data-translate="skill-web-html"><strong>HTML5:</strong> Proficient in creating semantic and accessible web structures.</li>
+          <li data-translate="skill-web-css"><strong>CSS3:</strong> Skilled in styling and layout techniques, including Flexbox and Grid.</li>
         </ul>
       </div>
       <div class="skill-category">
-        <h3><i class="fas fa-gamepad skill-icon"></i> Programming Languages</h3>
+        <h3><i class="fas fa-gamepad skill-icon"></i> <span data-translate="skill-languages-title">Programming Languages</span></h3>
         <ul>
-          <li><strong>C#:</strong> Leveraged C# to develop VR interactions in Unity.</li>
-          <li><strong>Python:</strong> Experienced in scripting and automation.</li>
-          <li><strong>Java:</strong> Familiar with object-oriented programming concepts.</li>
+          <li data-translate="skill-languages-cs"><strong>C#:</strong> Leveraged C# to develop VR interactions in Unity.</li>
+          <li data-translate="skill-languages-python"><strong>Python:</strong> Experienced in scripting and automation.</li>
+          <li data-translate="skill-languages-java"><strong>Java:</strong> Familiar with object-oriented programming concepts.</li>
         </ul>
       </div>
       <div class="skill-category">
-        <h3><i class="fas fa-tools skill-icon"></i> Tools & Platforms</h3>
+        <h3><i class="fas fa-tools skill-icon"></i> <span data-translate="skill-tools-title">Tools & Platforms</span></h3>
         <ul>
-          <li><strong>Git:</strong> Proficient in version control using Git and GitHub.</li>
-          <li><strong>Firebase:</strong> Integrated Firebase for secure data persistence in a mobile game.</li>
-          <li><strong>Unity:</strong> Extensive experience in game and VR development using Unity.</li>
+          <li data-translate="skill-tools-git"><strong>Git:</strong> Proficient in version control using Git and GitHub.</li>
+          <li data-translate="skill-tools-firebase"><strong>Firebase:</strong> Integrated Firebase for secure data persistence in a mobile game.</li>
+          <li data-translate="skill-tools-unity"><strong>Unity:</strong> Extensive experience in game and VR development using Unity.</li>
         </ul>
       </div>
     </div>
@@ -92,155 +96,162 @@
 
 <section id="projects" class="section">
   <div class="section-content">
-    <h2>Projects</h2>
+    <h2 data-translate="projects-title">Personal Projects</h2>
     <div class="project-grid">
-      <!-- Project Cards (Structure from Solution 3, Content from Prompt & Solution 3) -->
       <div class="project-card" data-project="project-1">
-        <img src="placeholder.jpg" alt="Personal Portfolio Website">
-        <h3>Personal Portfolio Website</h3>
-        <p>Responsive design showcasing my projects...</p>
-        <button class="button button-secondary project-button">Learn More</button>
+        <img src="/assets/2.png" alt="Personal Portfolio Website">
+        <h3 data-translate="project-1-title">Personal Portfolio Website</h3>
+        <p data-translate="project-1-desc">Responsive design showcasing my projects...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
       </div>
 
       <div class="project-card" data-project="project-2">
-        <img src="placeholder.jpg" alt="Task Management Application">
-        <h3>Task Management Application</h3>
-        <p>Interactive web app with local storage...</p>
-        <button class="button button-secondary project-button">Learn More</button>
+        <img src="assets/1.png" alt="Task Management Application">
+        <h3 data-translate="project-2-title">Task Management Application</h3>
+        <p data-translate="project-2-desc">Interactive web app with local storage...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
       </div>
 
       <div class="project-card" data-project="project-3">
         <img src="placeholder.jpg" alt="VR Training Application">
-        <h3>VR Training Application</h3>
-        <p>Built immersive VR features including...</p>
-        <button class="button button-secondary project-button">Learn More</button>
+        <h3 data-translate="project-3-title">VR Training Application</h3>
+        <p data-translate="project-3-desc">Built immersive VR features including...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
       </div>
 
       <div class="project-card" data-project="project-4">
         <img src="placeholder.jpg" alt="PC Game Launcher">
-        <h3>PC Game Launcher</h3>
-        <p>Revamped the launcher interface for...</p>
-        <button class="button button-secondary project-button">Learn More</button>
+        <h3 data-translate="project-4-title">PC Game Launcher</h3>
+        <p data-translate="project-4-desc">Revamped the launcher interface for...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
       </div>
 
       <div class="project-card" data-project="project-5">
         <img src="placeholder.jpg" alt="Mobile Game Save System">
-        <h3>Mobile Game Save System</h3>
-        <p>Implemented Firebase for secure data...</p>
-        <button class="button button-secondary project-button">Learn More</button>
+        <h3 data-translate="project-5-title">Mobile Game Save System</h3>
+        <p data-translate="project-5-desc">Implemented Firebase for secure data...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
       </div>
     </div>
 
-    <!-- Project Modals (Structure & Content from Solution 3) -->
     <div class="project-modal" id="project-1">
       <div class="modal-content">
         <span class="close-modal">×</span>
-        <h2>Personal Portfolio Website</h2>
-        <img src="placeholder.jpg" alt="Project 1 Detail">
-        <p>This website itself is a project!  Built with HTML, CSS, and JavaScript, it showcases my ability to create responsive, modern web designs. Key features include:</p>
+        <h2 data-translate="project-1-modal-title">Personal Portfolio Website</h2>
+        <img src="/assets/2.png" alt="Project 1 Detail">
+        <p data-translate="project-1-modal-desc">This website itself is a project!  Built with HTML, CSS, and JavaScript, it showcases my ability to create responsive, modern web designs. Key features include:</p>
         <ul>
-          <li>Smooth scrolling navigation</li>
-          <li>Interactive project cards with modals</li>
-          <li>Scroll-triggered animations</li>
-          <li>Responsive design for mobile and desktop</li>
-          <li>Integration with Font Awesome for icons</li>
+          <li data-translate="project-1-feature-1">Smooth scrolling navigation</li>
+          <li data-translate="project-1-feature-2">Interactive project cards with modals</li>
+          <li data-translate="project-1-feature-3">Scroll-triggered animations</li>
+          <li data-translate="project-1-feature-4">Responsive design for mobile and desktop</li>
         </ul>
-        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Font Awesome</p>
-        <a href="#" class="button button-primary" target="_blank">Visit Website</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a>  </div>
+        <p data-translate="project-1-tech"><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+        <a href="#" class="button button-primary" target="_blank" data-translate="project-1-visit">Visit Website</a>
+        <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-modal" id="project-2">
       <div class="modal-content">
         <span class="close-modal">×</span>
-        <h2>Task Management Application</h2>
-        <img src="placeholder.jpg" alt="Project 2 Detail">
-        <p>A web application built with JavaScript to manage tasks efficiently.  It utilizes local storage to persist data and offers a clean, intuitive user interface. I later integrated Firebase for enhanced data management.</p>
+        <h2 data-translate="project-2-modal-title">Task Management Application</h2>
+        <img src="/assets/1.png" alt="Project 2 Detail">
+        <p data-translate="project-2-modal-desc">A web application built with JavaScript to manage tasks efficiently.  It utilizes local storage to persist data and offers a clean, intuitive user interface. I later integrated Firebase for enhanced data management.</p>
         <ul>
-          <li>Add, edit, and delete tasks</li>
-          <li>Mark tasks as complete</li>
-          <li>Local storage persistence</li>
-          <li>Firestore integration (optional)</li>
-          <li>Responsive design</li>
+          <li data-translate="project-2-feature-1">Add, edit, and delete tasks</li>
+          <li data-translate="project-2-feature-2">Mark tasks as complete</li>
+          <li data-translate="project-2-feature-3">Local storage persistence</li>
+          <li data-translate="project-2-feature-4">Firestore integration (optional)</li>
+          <li data-translate="project-2-feature-5">Responsive design</li>
         </ul>
-        <p><strong>Technologies:</strong> JavaScript, HTML, CSS, Local Storage, (Optional) Firebase Firestore</p>
-        <a href="#" class="button button-primary" target="_blank">View Demo</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a> </div>
+        <p data-translate="project-2-tech"><strong>Technologies:</strong> JavaScript, HTML, CSS, Local Storage, (Optional) Firebase Firestore</p>
+        <a href="#" class="button button-primary" target="_blank" data-translate="project-2-demo">View Demo</a>
+        <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-modal" id="project-3">
       <div class="modal-content">
         <span class="close-modal">×</span>
-        <h2>VR Training Application (Visionary Tool)</h2>
+        <h2 data-translate="project-3-modal-title">VR Training Application (Visionary Tool)</h2>
         <img src="placeholder.jpg" alt="Project 3 Detail">
-        <p>Developed interactive VR features for a training application, focusing on user tutorials, animations, and UI systems. Created an immersive experience for users to learn and practice various tasks.</p>
+        <p data-translate="project-3-modal-desc">Developed interactive VR features for a training application, focusing on user tutorials, animations, and UI systems. Created an immersive experience for users to learn and practice various tasks.</p>
         <ul>
-          <li>Interactive VR tutorials</li>
-          <li>Custom animations and UI elements</li>
-          <li>User-friendly interface design</li>
-          <li>Optimized for performance in VR</li>
+          <li data-translate="project-3-feature-1">Interactive VR tutorials</li>
+          <li data-translate="project-3-feature-2">Custom animations and UI elements</li>
+          <li data-translate="project-3-feature-3">User-friendly interface design</li>
+          <li data-translate="project-3-feature-4">Optimized for performance in VR</li>
         </ul>
-        <p><strong>Technologies:</strong> Unity, C#, VR Development</p>
-        <a href="#" class="button button-primary" target="_blank">Watch Demo Video</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a> </div>
+        <p data-translate="project-3-tech"><strong>Technologies:</strong> Unity, C#, VR Development</p>
+        <a href="#" class="button button-primary" target="_blank" data-translate="project-3-video">Watch Demo Video</a>
+        <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-modal" id="project-4">
       <div class="modal-content">
         <span class="close-modal">×</span>
-        <h2>PC Game Launcher (Visionary Tool)</h2>
+        <h2 data-translate="project-4-modal-title">PC Game Launcher (Visionary Tool)</h2>
         <img src="placeholder.jpg" alt="Project 4 Detail">
-        <p>Revamped the user interface of a PC game launcher, improving its accessibility and overall user experience.  Focused on creating a modern, visually appealing design with clear navigation.</p>
+        <p data-translate="project-4-modal-desc">Revamped the user interface of a PC game launcher, improving its accessibility and overall user experience.  Focused on creating a modern, visually appealing design with clear navigation.</p>
         <ul>
-          <li>Modernized UI design</li>
-          <li>Improved navigation and layout</li>
-          <li>Enhanced accessibility features</li>
-          <li>User experience optimization</li>
+          <li data-translate="project-4-feature-1">Modernized UI design</li>
+          <li data-translate="project-4-feature-2">Improved navigation and layout</li>
+          <li data-translate="project-4-feature-3">Enhanced accessibility features</li>
+          <li data-translate="project-4-feature-4">User experience optimization</li>
         </ul>
-        <p><strong>Technologies:</strong>  Unity, C#, UI/UX Design</p>
-        <a href="#" class="button button-primary" target="_blank">View Screenshots</a>  <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a> </div>
+        <p data-translate="project-4-tech"><strong>Technologies:</strong> Unity, C#, UI/UX Design</p>
+        <a href="#" class="button button-primary" target="_blank" data-translate="project-4-screenshots">View Screenshots</a>
+        <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-modal" id="project-5">
       <div class="modal-content">
         <span class="close-modal">×</span>
-        <h2>Mobile Game Save System (FunTech Rocket)</h2>
+        <h2 data-translate="project-5-modal-title">Mobile Game Save System (FunTech Rocket)</h2>
         <img src="placeholder.jpg" alt="Project 5 Detail">
-        <p>Implemented a robust save system for a mobile game using Firebase.  This ensured secure data persistence and allowed users to save their progress across multiple devices.</p>
+        <p data-translate="project-5-modal-desc">Implemented a robust save system for a mobile game using Firebase.  This ensured secure data persistence and allowed users to save their progress across multiple devices.</p>
         <ul>
-          <li>Firebase integration for data persistence</li>
-          <li>Secure data storage and retrieval</li>
-          <li>Cross-device synchronization</li>
-          <li>Error handling and data validation</li>
+          <li data-translate="project-5-feature-1">Firebase integration for data persistence</li>
+          <li data-translate="project-5-feature-2">Secure data storage and retrieval</li>
+          <li data-translate="project-5-feature-3">Cross-device synchronization</li>
+          <li data-translate="project-5-feature-4">Error handling and data validation</li>
         </ul>
-        <p><strong>Technologies:</strong>  Unity, C#, Firebase Realtime Database</p>
-        <a href="#" class="button button-primary" target="_blank">Play Game (Link to App Store)</a> <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank">View on GitHub</a>  </div>
+        <p data-translate="project-5-tech"><strong>Technologies:</strong> Unity, C#, Firebase Realtime Database</p>
+        <a href="#" class="button button-primary" target="_blank" data-translate="project-5-play">Play Game (Link to App Store)</a>
+        <a href="https://github.com/yourusername/your-repo" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="experience" class="section">
   <div class="section-content">
-    <h2>Experience</h2>
+    <h2 data-translate="experience-title">Experience</h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>VR Unity Developer</h3>
-          <p class="timeline-company">Visionary Tool (Nov 2023 - May 2024)</p>
+          <h3 data-translate="experience-vr-title">VR Unity Developer</h3>
+          <p class="timeline-company" data-translate="experience-vr-company">Visionary Tool (Nov 2023 - May 2024)</p>
           <ul>
-            <li>Developed interactive UI systems and real-time network features.</li>
-            <li>Created user-friendly interfaces for VR and desktop platforms.</li>
-            <li>Improved cross-platform compatibility with responsive design.</li>
+            <li data-translate="experience-vr-li1">Developed interactive UI systems and real-time network features.</li>
+            <li data-translate="experience-vr-li2">Created user-friendly interfaces for VR and desktop platforms.</li>
+            <li data-translate="experience-vr-li3">Improved cross-platform compatibility with responsive design.</li>
           </ul>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Unity Developer Intern</h3>
-          <p class="timeline-company">FunTech Rocket (Apr 2023 - Jun 2023)</p>
+          <h3 data-translate="experience-intern-title">Unity Developer Intern</h3>
+          <p class="timeline-company" data-translate="experience-intern-company">FunTech Rocket (Apr 2023 - Jun 2023)</p>
           <ul>
-            <li>Implemented event-driven programming patterns.</li>
-            <li>Integrated Firebase for authentication and data persistence.</li>
-            <li>Enhanced code quality through refactoring.</li>
+            <li data-translate="experience-intern-li1">Implemented event-driven programming patterns.</li>
+            <li data-translate="experience-intern-li2">Integrated Firebase for authentication and data persistence.</li>
+            <li data-translate="experience-intern-li3">Enhanced code quality through refactoring.</li>
           </ul>
         </div>
       </div>
@@ -250,7 +261,7 @@
 
 <section id="contact" class="section">
   <div class="section-content">
-    <h2>Contact</h2>
+    <h2 data-translate="contact-title">Contact</h2>
     <div class="main">
       <div class="up">
         <a href="https://www.linkedin.com/in/frahermur/" target="_blank" class="card1" aria-label="LinkedIn">
@@ -273,9 +284,9 @@
 </section>
 
 <footer>
-  <p>© 2025 Francisco Javier Hernández</p>
+  <p data-translate="copyright">© 2025 Francisco Javier Hernández</p>
   <div id="dice-result"></div>
-  <button id="dice-roll" class="dice-roll-button">Roll the Dice</button>
+  <button id="dice-roll" class="dice-roll-button" data-translate="roll-dice">Roll the Dice</button>
 </footer>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="script.js"></script>

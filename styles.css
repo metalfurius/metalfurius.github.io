@@ -943,7 +943,7 @@ footer {
     padding: 0;
     font-size: inherit;
     font-family: inherit;
-    width: 12rem;
+    width: 14rem;
     height: auto;
     margin-top: 20px;
     border-radius: 1.625rem;
@@ -1021,4 +1021,28 @@ footer {
 .learn-more:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lang-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--font-family), sans-serif;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.lang-button:hover {
+    color: var(--primary-color);
+}
+
+.lang-button.active {
+    color: var(--primary-color);
+    font-weight: bold;
 }
