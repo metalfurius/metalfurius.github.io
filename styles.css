@@ -111,15 +111,19 @@ h4 { font-size: 1.25rem; }
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(25, 25, 25, 0.95); /* Slightly transparent */
-    backdrop-filter: blur(10px); /* Add blur for modern look */
+    background-color: rgba(25, 25, 25, 0.95);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: var(--transition);
+    transition: padding 0.3s ease; /* Updated to transition only padding */
+}
+
+.sticky-nav.shrunk {
+    padding: 0.5rem 2rem; /* Reduces vertical padding from 1rem to 0.5rem */
 }
 
 .nav-name {

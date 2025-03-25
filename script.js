@@ -102,6 +102,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    const nav = document.querySelector('.sticky-nav');
+    window.addEventListener('scroll', function() {
+        nav.classList.toggle('shrunk', window.scrollY > 50);
+    });
+
     window.addEventListener('scroll', highlightNavLink);
     document.addEventListener('DOMContentLoaded', highlightNavLink);
 
