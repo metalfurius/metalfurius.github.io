@@ -245,6 +245,7 @@ h4 { font-size: 1.25rem; }
     font-size: 3rem;
     color: var(--primary-color);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .about-logo i:hover {

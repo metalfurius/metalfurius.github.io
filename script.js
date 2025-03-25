@@ -56,17 +56,46 @@ document.addEventListener("DOMContentLoaded", function() {
     checkVisibility();
     window.addEventListener('scroll', checkVisibility);
 
-    // Dice Roll
+    // Function to get quirky messages based on roll value
+    function getRollMessage(roll) {
+        if (roll <= 5) {
+            return "Ouch, a bit low! Maybe hiring me will boost your luck?";
+        } else if (roll <= 10) {
+            return "Not bad, but there’s room for improvement. Let’s work together!";
+        } else if (roll <= 15) {
+            return "Pretty good! Imagine what we could achieve as a team.";
+        } else if (roll <= 19) {
+            return "Impressive roll! Clearly, you’re on a lucky streak.";
+        } else { // roll === 20
+            return "Critical success! You must be destined to hire me!";
+        }
+    }
+
+    // Updated Dice Roll with messages
     const diceRollButton = document.getElementById('dice-roll');
     if (diceRollButton) {
         diceRollButton.addEventListener('click', function() {
             const roll = Math.floor(Math.random() * 20) + 1;
             const resultDiv = document.getElementById('dice-result');
-            resultDiv.innerHTML = `You rolled a <strong>${roll}</strong> on a D20!`;
+            const message = getRollMessage(roll);
+            resultDiv.innerHTML = `You rolled a <strong>${roll}</strong> on a D20! ${message}`;
             resultDiv.style.opacity = '1';
             setTimeout(() => {
                 resultDiv.style.opacity = '0';
-            }, 3000); // Fades out after 3 seconds
+            }, 5000); // Increased to 5 seconds for readability
+        });
+    }
+
+    // Secret feature: Click dice in About Me to scroll and roll
+    const aboutDice = document.querySelector('.about-logo i');
+    if (aboutDice) {
+        aboutDice.addEventListener('click', function() {
+            if (diceRollButton) {
+                diceRollButton.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    diceRollButton.click();
+                }, 500); // Delay to allow scroll to complete
+            }
         });
     }
 
