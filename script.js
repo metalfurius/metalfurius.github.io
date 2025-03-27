@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const preloader = document.querySelector('.preloader');
+    const preloader = document.querySelector('.preloader-wrapper');
     setTimeout(() => {
         preloader.style.transition = 'opacity 0.5s';
         preloader.style.opacity = '0';
@@ -297,8 +297,8 @@ document.addEventListener("DOMContentLoaded", function() {
             preloader.style.display = 'none';
             const taglineText = translations[currentLanguage]['tagline'];
             typeWriter(taglineText); // Iniciar typewriter después de ocultar el preloader
-        }, 500);
-    }, 1500);
+        }, 0);
+    }, 3000);
 
     const navLinks = document.querySelectorAll('.sticky-nav a');
     navLinks.forEach(link => {
