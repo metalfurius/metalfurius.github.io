@@ -11,6 +11,7 @@ const translations = {
         "lang-es-aria": "Switch to Spanish",
         "tagline": "Crafting Engaging Experiences | Junior Software Developer | Unity & Web Enthusiast",
         "download-cv": "Download CV",
+        "cv-url": "https://raw.githubusercontent.com/metalfurius/metalfurius.github.io/main/CV%20Francisco%20Javier%20Hern%C3%A1ndez%20Murillo%20English.pdf",
         "about-title": "About Me",
         "about-p1": "Hi, I'm Francisco Javier, a passionate software developer blending game development with web technologies. My journey began with a curiosity for creating worlds, leading me to master C# in Unity and build interactive experiences.",
         "about-p2": "Now, I’m diving into web development, mastering JavaScript, HTML, and CSS to craft intuitive web applications. My game design roots inspire me to bring creativity and interactivity to every project.",
@@ -109,6 +110,7 @@ const translations = {
         "lang-es-aria": "Cambiar a Español",
         "tagline": "Creando Experiencias Atractivas | Desarrollador de Software Junior | Entusiasta de Unity y Web",
         "download-cv": "Descargar CV",
+        "cv-url": "https://raw.githubusercontent.com/metalfurius/metalfurius.github.io/main/CV%20Francisco%20Javier%20Hern%C3%A1ndez%20Murillo%20Spanish.pdf",
         "about-title": "Sobre Mí",
         "about-p1": "Hola, soy Francisco Javier, un apasionado desarrollador de software que combina el desarrollo de juegos con tecnologías web. Mi viaje comenzó con una curiosidad por crear mundos, lo que me llevó a dominar C# en Unity y construir experiencias interactivas.",
         "about-p2": "Ahora, me estoy sumergiendo en el desarrollo web, dominando JavaScript, HTML y CSS para crear aplicaciones web intuitivas. Mis raíces en el diseño de juegos me inspiran a aportar creatividad e interactividad a cada proyecto.",
@@ -239,7 +241,11 @@ function setLanguage(lang) {
             button.classList.add('active');
         }
     });
-    // Iniciar typewriter con el texto del tagline en el nuevo idioma
+    const cvButton = document.getElementById('download-cv');
+    if (cvButton) {
+        cvButton.href = translations[lang]["cv-url"];
+    }
+
     const taglineText = translations[lang]['tagline'];
     typeWriter(taglineText);
 }
