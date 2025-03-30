@@ -390,6 +390,8 @@ h4 { font-size: 1.25rem; }
     max-width: 800px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .close-modal {
@@ -415,6 +417,9 @@ h4 { font-size: 1.25rem; }
     height: auto;
     border-radius: var(--border-radius);
     margin-bottom: 1.5rem;
+}
+body.modal-open {
+    overflow: hidden;
 }
 
 .modal-content ul {
@@ -796,8 +801,16 @@ footer {
     .close-modal {
         font-size: 1.5rem;
     }
+    body.modal-open {
+        overflow: hidden;
+    }
     .skill-category h3 {
         font-size: 1.5rem; /* Reduce font size on smaller screens */
+    }
+    .modal-content {
+        margin: 10% 5%; /* Increase top margin and reduce side margins */
+        max-width: 90%; /* Use more of the screen width */
+        padding: 1rem;  /* Reduce padding for more content space */
     }
 }
 

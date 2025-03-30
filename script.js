@@ -407,6 +407,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const modal = document.getElementById(projectId);
                 if (modal) {
                     modal.style.display = 'block';
+                    document.body.classList.add('modal-open'); // Add class to body
                 }
             }
         });
@@ -415,6 +416,7 @@ document.addEventListener("DOMContentLoaded", function() {
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
             this.closest('.project-modal').style.display = 'none';
+            document.body.classList.remove('modal-open');
         });
     });
 
@@ -422,6 +424,7 @@ document.addEventListener("DOMContentLoaded", function() {
         projectModals.forEach(modal => {
             if (event.target === modal) {
                 modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
             }
         });
     });
