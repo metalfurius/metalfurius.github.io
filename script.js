@@ -336,32 +336,34 @@ document.addEventListener("DOMContentLoaded", function() {
     checkVisibility();
     window.addEventListener('scroll', checkVisibility);
 
-    const diceRollButton = document.getElementById('dice-roll');
-    if (diceRollButton) {
-        diceRollButton.addEventListener('click', function() {
+    const aboutDice = document.querySelector('.about-logo i');
+    const aboutDiceResultDiv = document.getElementById('about-dice-result'); // Get the new result div
+
+    if (aboutDice && aboutDiceResultDiv) { // Check if both elements exist
+        let hideTimeout; // Variable to store the timeout ID
+
+        aboutDice.addEventListener('click', function() {
+            // Clear any existing timeout to prevent premature hiding
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+            }
+
+            // --- Dice Roll Logic ---
             const roll = Math.floor(Math.random() * 20) + 1;
             const message = getRollMessage(roll);
-            const rollText = translations[currentLanguage]["dice-roll-text"]
+            // --- End Dice Roll Logic ---
+
+            // Display result in the new div
+            aboutDiceResultDiv.innerHTML = translations[currentLanguage]["dice-roll-text"]
                 .replace("{roll}", roll)
                 .replace("{message}", message);
-            const resultDiv = document.getElementById('dice-result');
-            resultDiv.innerHTML = rollText;
-            resultDiv.style.opacity = '1';
-            setTimeout(() => {
-                resultDiv.style.opacity = '0';
-            }, 5000);
-        });
-    }
+            aboutDiceResultDiv.classList.add('show'); // Use class for visibility
 
-    const aboutDice = document.querySelector('.about-logo i');
-    if (aboutDice) {
-        aboutDice.addEventListener('click', function() {
-            if (diceRollButton) {
-                diceRollButton.scrollIntoView({ behavior: 'smooth' });
-                setTimeout(() => {
-                    diceRollButton.click();
-                }, 500);
-            }
+            // Set timeout to hide the result after 5 seconds
+            hideTimeout = setTimeout(() => {
+                aboutDiceResultDiv.classList.remove('show');
+                hideTimeout = null; // Reset timeout ID
+            }, 5000);
         });
     }
 

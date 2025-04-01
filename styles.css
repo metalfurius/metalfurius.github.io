@@ -240,6 +240,7 @@ h4 { font-size: 1.25rem; }
 
 .about-logo {
     margin-bottom: 1.5rem;
+    position: relative;
 }
 .about-logo i {
     font-size: 3rem;
@@ -262,6 +263,30 @@ h4 { font-size: 1.25rem; }
 .about-text p:first-child {
     font-weight: 500; /* Slightly bolder intro */
     color: var(--text-color); /* Brighter for emphasis */
+}
+
+.about-dice-result {
+    position: absolute;
+    top: 110%; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: var(--surface-color);
+    color: var(--accent-color); /* Use accent color like before */
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: 220px; /* Adjust as needed */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease;
+    z-index: 10; /* Ensure it's above other elements if necessary */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.about-dice-result.show {
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction when shown (if needed) */
 }
 
 /* Skills Section */
@@ -559,33 +584,6 @@ footer {
     text-align: center;
     padding: 2rem;
     background-color: var(--background-color);
-}
-
-.dice-roll-button {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    margin: 1rem auto;
-    display: block;
-    font-weight: 500;
-}
-
-.dice-roll-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Slight grow effect */
-}
-
-#dice-result {
-    margin-bottom: 1rem; /* Space between result and button */
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    text-align: center;
-    transition: opacity 1.5s ease;
-    opacity: 0; /* Hidden by default */
 }
 
 /* Preloader */
