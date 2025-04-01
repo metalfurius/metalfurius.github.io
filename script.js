@@ -1,5 +1,6 @@
 const translations = {
     en: {
+        "wip-tag": "WIP",
         "page-title": "Francisco Javier - Portfolio",
         "nav-home": "Home",
         "nav-about": "About",
@@ -98,6 +99,7 @@ const translations = {
         "dice-roll-text": "You rolled a <strong>{roll}</strong> on a D20! {message}"
     },
     es: {
+        "wip-tag": "En Progreso",
         "page-title": "Francisco Javier - Portafolio",
         "nav-home": "Inicio",
         "nav-about": "Sobre mí",
@@ -296,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const taglineText = translations[currentLanguage]['tagline'];
             typeWriter(taglineText); // Iniciar typewriter después de ocultar el preloader
         }, 0);
-    }, 3000);
+    }, 1500);
 
     const navLinks = document.querySelectorAll('.sticky-nav a');
     navLinks.forEach(link => {
