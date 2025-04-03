@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab8d417e-0094-4d27-a757-edff394527bc" name="Changes" comment="add dice roll feature and update styles for result display">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-    </list>
+    <list default="true" id="ab8d417e-0094-4d27-a757-edff394527bc" name="Changes" comment="add Luckbound project details and update image paths" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +48,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Trabajo\repos\metalfurius.github.io\assets" />
+      <recent name="E:\Trabajo\repos\metalfurius.github.io\assets\img" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -69,7 +71,7 @@
       <updated>1743354968705</updated>
       <workItem from="1743354970184" duration="229000" />
       <workItem from="1743496281314" duration="2635000" />
-      <workItem from="1743523885407" duration="619000" />
+      <workItem from="1743523885407" duration="1122000" />
     </task>
     <task id="LOCAL-00001" summary="add favicon">
       <option name="closed" value="true" />
@@ -95,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743498214969</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add Luckbound project details and update image paths">
+      <option name="closed" value="true" />
+      <created>1743524756274</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743524756274</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +115,7 @@
     <MESSAGE value="add favicon" />
     <MESSAGE value="add WIP tags to project details and update styles" />
     <MESSAGE value="add dice roll feature and update styles for result display" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dice roll feature and update styles for result display" />
+    <MESSAGE value="add Luckbound project details and update image paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Luckbound project details and update image paths" />
   </component>
 </project>
