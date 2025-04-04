@@ -456,4 +456,24 @@ document.addEventListener("DOMContentLoaded", function() {
             "retina_detect": true
         });
     }, 1500);
+
+    const scrollArrow = document.querySelector('.scroll-down-arrow');
+
+    if (scrollArrow) {
+        const hideArrowOnScroll = () => {
+            scrollArrow.classList.add('hidden');
+        };
+
+        window.addEventListener('scroll', hideArrowOnScroll, { once: true });
+
+        scrollArrow.addEventListener('click', () => {
+            setTimeout(() => {
+                if (!scrollArrow.classList.contains('hidden')) {
+                    scrollArrow.classList.add('hidden');
+                    // Explicitly remove the scroll listener if arrow is clicked before scrolling
+                    window.removeEventListener('scroll', hideArrowOnScroll);
+                }
+            }, 100); // 100ms delay
+        });
+    }
 });

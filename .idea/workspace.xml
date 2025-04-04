@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab8d417e-0094-4d27-a757-edff394527bc" name="Changes" comment="add Luckbound project details and update image paths" />
+    <list default="true" id="ab8d417e-0094-4d27-a757-edff394527bc" name="Changes" comment="add scroll down arrow and hide on scroll">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +77,7 @@
       <workItem from="1743354970184" duration="229000" />
       <workItem from="1743496281314" duration="2635000" />
       <workItem from="1743523885407" duration="1122000" />
+      <workItem from="1743761513313" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="add favicon">
       <option name="closed" value="true" />
@@ -116,6 +122,7 @@
     <MESSAGE value="add WIP tags to project details and update styles" />
     <MESSAGE value="add dice roll feature and update styles for result display" />
     <MESSAGE value="add Luckbound project details and update image paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Luckbound project details and update image paths" />
+    <MESSAGE value="add scroll down arrow and hide on scroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="add scroll down arrow and hide on scroll" />
   </component>
 </project>

@@ -1174,3 +1174,58 @@ footer {
     margin-left: 0.5rem;
     vertical-align: middle;
 }
+
+/* Scroll Down Arrow */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 30px; /* Adjust vertical position from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5; /* Below nav (1000), above particles (1) */
+    cursor: pointer;
+    opacity: 1; /* Start visible */
+    transition: opacity 0.5s ease-out; /* Smooth fade-out */
+}
+
+.scroll-down-arrow span {
+    display: block;
+    width: 20px; /* Arrow size */
+    height: 20px; /* Arrow size */
+    border: solid var(--text-color); /* Arrow color (use your theme color) */
+    border-width: 0 3px 3px 0; /* Create chevron shape */
+    transform: rotate(45deg); /* Point down */
+    animation: bounceArrow 2s infinite; /* Apply animation */
+}
+
+/* Animation for the arrow */
+@keyframes bounceArrow {
+    0%, 20%, 50%, 80%, 100% {
+        /* Keep the rotate(45deg) for the chevron shape */
+        transform: translateX(-50%) translateY(0) rotate(45deg);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px) rotate(45deg); /* Move up */
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px) rotate(45deg); /* Slight bounce back */
+    }
+}
+
+/* Class to hide the arrow */
+.scroll-down-arrow.hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+
+/* --- Responsive Adjustments for Arrow (Optional) --- */
+@media (max-width: 768px) {
+    .scroll-down-arrow {
+        bottom: 20px; /* Slightly higher on smaller screens */
+    }
+    .scroll-down-arrow span {
+        width: 15px;
+        height: 15px;
+        border-width: 0 2px 2px 0; /* Smaller border */
+    }
+}
