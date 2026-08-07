@@ -17,7 +17,7 @@ function check(condition, message) {
 }
 
 function parseTranslations() {
-  const match = js.match(/const translations = (\{[\s\S]*?\n\});\n\nconst rollMessages/);
+  const match = js.match(/const translations = (\{[\s\S]*?\n\s*\});\r?\n\r?\nconst rollMessages/);
   check(Boolean(match), "translations object could not be parsed");
   if (!match) return { en: {}, es: {} };
   try {
