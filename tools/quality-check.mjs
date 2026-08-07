@@ -125,6 +125,23 @@ function checkAssets() {
   check(readFileSync(join(root, "CNAME"), "utf8").trim() === "codeoverdose.es", "CNAME is not the canonical custom domain");
 }
 
+function checkIntegrity() {
+  const scripts = [...html.matchAll(/<script\b([^>]+)>/gi)].map((match) => match[1]);
+  check(scripts.length === 1, "unexpected script tags or duplicate runtime references remain");
+  check(scripts.every((attributes) => /src="script\.js"/.test(attributes) && /\bdefer\b/.test(attributes)), "runtime script integrity attributes are incomplete");
+  check(!/<script\b[^>]*src="https?:/i.test(html), "remote executable scripts are not allowed");
+  check(!html.includes("?v=") && !html.includes("?ver="), "query-string cache busting remains on the canonical page");
+}
+
+function checkPerformance() {
+  const budgets = [
+    ["index.html", 45_000, html.length],
+    ["styles.css", 60_000, css.length],
+    ["script.js", 45_000, js.length]
+  ];
+  for (const [name, budget, size] of budgets) check(size <= budget, `${name} exceeds its ${budget}-byte source budget (${size})`);
+}
+
 function checkLinks() {
   for (const match of html.matchAll(/\b(?:href|src)="([^"]+)"/gi)) {
     const reference = match[1];
@@ -140,11 +157,13 @@ function checkArtifact() {
   check(existsSync(join(artifact, "assets")), "Pages artifact is missing assets");
 }
 
-if (["all", "html", "parity", "links", "a11y"].includes(mode)) checkHtml();
+if (["all", "html", "parity", "links", "a11y", "integrity"].includes(mode)) checkHtml();
 if (["all", "css"].includes(mode)) checkCss();
 if (["all", "js"].includes(mode)) checkJs();
 if (["all", "a11y"].includes(mode)) checkA11y();
-if (["all", "assets"].includes(mode)) checkAssets();
+if (["all", "assets", "performance"].includes(mode)) checkAssets();
+if (["all", "integrity"].includes(mode)) checkIntegrity();
+if (["all", "performance"].includes(mode)) checkPerformance();
 if (["all", "links"].includes(mode)) checkLinks();
 if (mode === "artifact") checkArtifact();
 

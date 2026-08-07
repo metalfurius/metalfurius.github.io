@@ -18,7 +18,9 @@
     "check:links": "node tools/quality-check.mjs --links",
     "check:parity": "node tools/quality-check.mjs --parity",
     "check:a11y": "node tools/quality-check.mjs --a11y",
+    "check:integrity": "node tools/quality-check.mjs --integrity",
     "check:assets": "node tools/quality-check.mjs --assets",
+    "check:performance": "node tools/quality-check.mjs --performance",
     "build": "node tools/build.mjs",
     "check:build": "npm run build && node tools/quality-check.mjs --artifact",
     "check:smoke": "node tools/smoke.mjs"
