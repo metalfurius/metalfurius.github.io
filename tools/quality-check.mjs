@@ -93,7 +93,6 @@ function checkJs() {
   check(js.includes("showModal"), "native dialog opening is missing");
   check(js.includes("focusRestoration"), "dialog focus restoration is missing");
   check(js.includes("event.key !== \"Tab\""), "dialog keyboard focus handling is missing");
-  check(js.includes("event.key !== \"Tab\""), "dialog keyboard focus handling is missing");
   check(js.includes("addEventListener(\"cancel\""), "dialog Escape/cancel handling is missing");
   check(js.includes("requestAnimationFrame"), "dialog initial focus is missing");
   check(js.includes("js-enabled"), "progressive enhancement marker is missing");
