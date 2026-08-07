@@ -1,0 +1,28 @@
+{
+  "name": "codeoverdose-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static bilingual CodeOverdose portfolio",
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0 <25",
+    "npm": ">=10 <12"
+  },
+  "packageManager": "npm@11.6.2",
+  "scripts": {
+    "check": "node tools/quality-check.mjs",
+    "test": "node tools/quality-check.mjs",
+    "check:html": "node tools/quality-check.mjs --html",
+    "check:css": "node tools/quality-check.mjs --css",
+    "check:js": "node tools/quality-check.mjs --js",
+    "check:links": "node tools/quality-check.mjs --links",
+    "check:parity": "node tools/quality-check.mjs --parity",
+    "check:a11y": "node tools/quality-check.mjs --a11y",
+    "check:integrity": "node tools/quality-check.mjs --integrity",
+    "check:assets": "node tools/quality-check.mjs --assets",
+    "check:performance": "node tools/quality-check.mjs --performance",
+    "build": "node tools/build.mjs",
+    "check:build": "npm run build && node tools/quality-check.mjs --artifact",
+    "check:smoke": "node tools/smoke.mjs"
+  }
+}

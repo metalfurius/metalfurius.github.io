@@ -1,0 +1,26 @@
+name: Pages custom-domain smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Use pinned Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install locked toolchain
+        run: npm ci
+      - name: Check canonical custom domain
+        env:
+          SMOKE_URL: https://codeoverdose.es/
+        run: npm run check:smoke
