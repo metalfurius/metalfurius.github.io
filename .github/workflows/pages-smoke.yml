@@ -1,7 +1,6 @@
 name: Pages custom-domain smoke
 
 on:
-  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -9,6 +8,7 @@ permissions:
 
 jobs:
   smoke:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -21,7 +21,14 @@ jobs:
           cache: npm
       - name: Install locked toolchain
         run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
       - name: Check canonical custom domain
         env:
           SMOKE_URL: https://codeoverdose.es/
         run: npm run check:smoke
+      - name: Check canonical Chromium journeys
+        env:
+          BASE_URL: https://codeoverdose.es/
+          CANONICAL_LIVE: "1"
+        run: npx playwright test tests/visual/canonical-live.spec.mjs

@@ -17,6 +17,8 @@ const indexUrl = new URL("index.html", rootUrl);
 const manifestUrl = new URL("site-revision.json", rootUrl);
 const localManifest = JSON.parse(readFileSync(join(process.cwd(), "site-revision.json"), "utf8"));
 const failures = [];
+const retryCount = Math.max(1, Math.min(Number.parseInt(process.env.SMOKE_RETRIES || "4", 10) || 4, 5));
+const retryDelayMs = Math.max(250, Math.min(Number.parseInt(process.env.SMOKE_RETRY_DELAY_MS || "1000", 10) || 1000, 5_000));
 
 function check(condition, message) {
   if (!condition) failures.push(message);
@@ -29,16 +31,37 @@ function digest(bytes, path = "") {
 }
 
 async function fetchPage(url) {
-  const response = await fetch(url, {
-    redirect: "follow",
-    cache: "no-store",
-    headers: { "cache-control": "no-cache", pragma: "no-cache" }
-  });
-  check(response.ok, `${url} returned HTTP ${response.status}`);
+  let response;
+  let error;
+  for (let attempt = 1; attempt <= retryCount; attempt += 1) {
+    response = undefined;
+    try {
+      response = await fetch(url, {
+        redirect: "follow",
+        cache: "no-store",
+        headers: {
+          accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+          "accept-language": "en-US,en;q=0.9",
+          "cache-control": "no-cache",
+          pragma: "no-cache",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+        }
+      });
+      error = undefined;
+    } catch (fetchError) {
+      error = fetchError;
+    }
+    const retryable = error || response?.status === 403 || response?.status === 408 || response?.status === 429 || response?.status >= 500;
+    if (!retryable || attempt === retryCount) break;
+    await new Promise((resolve) => setTimeout(resolve, retryDelayMs));
+  }
+  const cacheStatus = response?.headers.get("cf-cache-status") || "unknown";
+  const server = response?.headers.get("server") || "unknown";
+  check(!error && response?.ok, `${url} returned HTTP ${error ? `fetch error: ${error.message}` : response?.status || "no response"} (cf-cache-status: ${cacheStatus}; server: ${server}; attempts: ${retryCount})`);
   return {
-    url: response.url,
+    url: response?.url || url.toString(),
     response,
-    bytes: new Uint8Array(await response.arrayBuffer())
+    bytes: response ? new Uint8Array(await response.arrayBuffer()) : new Uint8Array()
   };
 }
 
@@ -87,7 +110,7 @@ for (const asset of [localManifest.assets.css, localManifest.assets.js]) {
 }
 
 for (const page of [rootPage, indexPage]) {
-  const cacheControl = page.response.headers.get("cache-control") || "";
+  const cacheControl = page.response?.headers.get("cache-control") || "";
   check(/(?:no-cache|no-store|max-age=0|must-revalidate)/i.test(cacheControl), `${new URL(page.url).pathname} must be revalidating, got Cache-Control: ${cacheControl || "missing"}`);
 }
 
