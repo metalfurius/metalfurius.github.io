@@ -10,7 +10,13 @@ const viewports = [
 async function waitForStablePage(page) {
   await page.evaluate(async () => {
     await document.fonts.ready;
-    const imagesReady = Promise.all([...document.images].map((image) => image.complete ? undefined : new Promise((resolve) => {
+    const images = [...document.images];
+    for (const image of images) {
+      image.scrollIntoView({ block: "center", inline: "nearest" });
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+    }
+    window.scrollTo(0, 0);
+    const imagesReady = Promise.all(images.map((image) => image.complete ? undefined : new Promise((resolve) => {
       image.addEventListener("load", resolve, { once: true });
       image.addEventListener("error", resolve, { once: true });
     })));
