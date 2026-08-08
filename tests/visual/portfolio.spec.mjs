@@ -12,6 +12,7 @@ async function waitForStablePage(page) {
     await document.fonts.ready;
     const images = [...document.images];
     for (const image of images) {
+      image.loading = "eager";
       image.scrollIntoView({ block: "center", inline: "nearest" });
       await new Promise((resolve) => requestAnimationFrame(resolve));
     }
@@ -21,6 +22,8 @@ async function waitForStablePage(page) {
       image.addEventListener("error", resolve, { once: true });
     })));
     await Promise.race([imagesReady, new Promise((resolve) => setTimeout(resolve, 2_000))]);
+    const failedImages = images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.currentSrc || image.src);
+    if (failedImages.length) throw new Error(`Visual gate image load failure: ${failedImages.join(", ")}`);
   });
   await page.waitForTimeout(100);
 }
