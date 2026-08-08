@@ -160,7 +160,7 @@ function checkArtifact() {
   check(existsSync(join(artifact, "assets")), "Pages artifact is missing assets");
   check(existsSync(join(artifact, "site-revision.json")), "Pages artifact is missing site-revision.json");
   check(existsSync(join(artifact, "styles.8a6775e69351.css")), "Pages artifact is missing the immutable stylesheet");
-  check(existsSync(join(artifact, "script.c06ffd64dc38.js")), "Pages artifact is missing the immutable runtime");
+  check(existsSync(join(artifact, "script.8d644fa8d579.js")), "Pages artifact is missing the immutable runtime");
 }
 
 if (["all", "html", "parity", "links", "a11y", "integrity"].includes(mode)) checkHtml();

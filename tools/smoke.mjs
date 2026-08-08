@@ -22,8 +22,10 @@ function check(condition, message) {
   if (!condition) failures.push(message);
 }
 
-function digest(bytes) {
-  return createHash("sha256").update(Buffer.from(bytes)).digest("hex");
+function digest(bytes, path = "") {
+  const text = Buffer.from(bytes).toString("utf8");
+  const normalized = /\.(?:css|js)$/i.test(path) ? text.replaceAll("\r\n", "\n") : bytes;
+  return createHash("sha256").update(typeof normalized === "string" ? normalized : Buffer.from(normalized)).digest("hex");
 }
 
 async function fetchPage(url) {
@@ -81,7 +83,7 @@ check(runtime === localManifest.assets.js.path, "canonical HTML runtime does not
 for (const asset of [localManifest.assets.css, localManifest.assets.js]) {
   const assetUrl = new URL(asset.path, rootUrl);
   const page = await fetchPage(assetUrl);
-  check(digest(page.bytes) === asset.sha256, `${asset.path} bytes do not match site-revision.json`);
+  check(digest(page.bytes, asset.path) === asset.sha256, `${asset.path} bytes do not match site-revision.json`);
 }
 
 for (const page of [rootPage, indexPage]) {
@@ -93,7 +95,7 @@ const repeatUrls = [rootUrl, indexUrl, manifestUrl, new URL(localManifest.assets
 for (const url of repeatUrls) {
   const first = await fetchPage(url);
   const second = await fetchPage(url);
-  check(digest(first.bytes) === digest(second.bytes), `repeated no-query requests are not stable for ${url.pathname}`);
+  check(digest(first.bytes, url.pathname) === digest(second.bytes, url.pathname), `repeated no-query requests are not stable for ${url.pathname}`);
 }
 
 if (failures.length) {

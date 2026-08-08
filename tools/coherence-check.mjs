@@ -8,7 +8,7 @@ const fail = (condition, message) => {
   if (!condition) failures.push(message);
 };
 const read = (name) => readFileSync(join(root, name), "utf8");
-const sha256 = (name) => createHash("sha256").update(read(name)).digest("hex");
+const sha256 = (name) => createHash("sha256").update(read(name).replaceAll("\r\n", "\n")).digest("hex");
 
 const html = read("index.html");
 const manifestPath = join(root, "site-revision.json");

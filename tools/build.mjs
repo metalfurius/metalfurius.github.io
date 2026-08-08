@@ -8,7 +8,7 @@ const files = [
   "styles.css",
   "script.js",
   "styles.8a6775e69351.css",
-  "script.c06ffd64dc38.js",
+  "script.8d644fa8d579.js",
   "site-revision.json",
   "CNAME",
   "robots.txt",
