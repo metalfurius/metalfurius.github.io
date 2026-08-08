@@ -16,7 +16,7 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -27,8 +27,22 @@ jobs:
           cache: npm
       - name: Install locked toolchain
         run: npm ci
+      - name: Install Chromium for browser gates
+        run: npx playwright install --with-deps chromium
       - name: Run static quality gates
         run: npm test
+      - name: Run Chromium visual and interaction gates
+        run: npm run check:visual
+      - name: Upload visual gate diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: portfolio-visual-gate-output
+          path: |
+            test-results
+            playwright-report
+            tests/visual/__screenshots__
+          if-no-files-found: ignore
       - name: Build Pages artifact
         run: npm run check:build
       - name: Upload Pages artifact

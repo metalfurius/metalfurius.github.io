@@ -10,8 +10,8 @@
   },
   "packageManager": "npm@11.6.2",
   "scripts": {
-    "check": "node tools/quality-check.mjs",
-    "test": "node tools/quality-check.mjs",
+    "check": "node tools/quality-check.mjs && node tools/coherence-check.mjs",
+    "test": "node tools/quality-check.mjs && node tools/coherence-check.mjs",
     "check:html": "node tools/quality-check.mjs --html",
     "check:css": "node tools/quality-check.mjs --css",
     "check:js": "node tools/quality-check.mjs --js",
@@ -21,8 +21,13 @@
     "check:integrity": "node tools/quality-check.mjs --integrity",
     "check:assets": "node tools/quality-check.mjs --assets",
     "check:performance": "node tools/quality-check.mjs --performance",
+    "check:coherence": "node tools/coherence-check.mjs",
+    "check:visual": "playwright test",
     "build": "node tools/build.mjs",
     "check:build": "npm run build && node tools/quality-check.mjs --artifact",
     "check:smoke": "node tools/smoke.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
   }
 }

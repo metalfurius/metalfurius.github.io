@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "revision": "8a6775e69351-8d644fa8d579",
+  "entrypoint": "index.html",
+  "assets": {
+    "css": {
+      "path": "styles.8a6775e69351.css",
+      "sha256": "8a6775e6935122fce0a7ecfcfca4a430e506521a4123c4513d82cc4f58625f37"
+    },
+    "js": {
+      "path": "script.8d644fa8d579.js",
+      "sha256": "8d644fa8d5799cfdf27c8887583f60b3dc23c413b12c0fc3cf216e060a1ed7ad"
+    }
+  }
+}

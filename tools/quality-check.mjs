@@ -41,8 +41,11 @@ function checkHtml() {
   for (const lang of ["en", "es", "x-default"]) check(new RegExp(`hreflang="${lang}"`).test(html), `hreflang ${lang} is missing`);
   check(/property="og:title"/.test(html) && /name="twitter:title"/.test(html), "social title metadata is incomplete");
   check(/property="og:description"/.test(html) && /name="twitter:description"/.test(html), "social description metadata is incomplete");
-  check((html.match(/<script\b[^>]*src="script\.js"[^>]*>/gi) || []).length === 1, "script.js must be loaded exactly once");
-  check(/<script\b[^>]*src="script\.js"[^>]*\bdefer\b/i.test(html), "script.js must be deferred");
+  const stylesheetReferences = html.match(/<link\b[^>]*rel="stylesheet"[^>]*href="[^"]+"[^>]*>/gi) || [];
+  const runtimeReferences = html.match(/<script\b[^>]*src="[^"]+"[^>]*>/gi) || [];
+  check(stylesheetReferences.length === 1 && /href="styles\.[0-9a-f]{12}\.css"/i.test(stylesheetReferences[0] || ""), "the stylesheet must use one content-addressed reference");
+  check(runtimeReferences.length === 1 && /src="script\.[0-9a-f]{12}\.js"/i.test(runtimeReferences[0] || ""), "the runtime must use one content-addressed script reference");
+  check(/<script\b[^>]*src="script\.[0-9a-f]{12}\.js"[^>]*\bdefer\b/i.test(html), "the content-addressed runtime script must be deferred");
   check(!html.includes("href=\"#\""), "placeholder hash links remain");
   check(!/(?:href|src)="\/assets\//.test(html), "root-relative asset references break subpath previews");
   check(!/[ÃÂ�]/.test(html + js + css), "mojibake characters remain in source");
@@ -128,7 +131,7 @@ function checkAssets() {
 function checkIntegrity() {
   const scripts = [...html.matchAll(/<script\b([^>]+)>/gi)].map((match) => match[1]);
   check(scripts.length === 1, "unexpected script tags or duplicate runtime references remain");
-  check(scripts.every((attributes) => /src="script\.js"/.test(attributes) && /\bdefer\b/.test(attributes)), "runtime script integrity attributes are incomplete");
+  check(scripts.every((attributes) => /src="script\.[0-9a-f]{12}\.js"/.test(attributes) && /\bdefer\b/.test(attributes)), "runtime script integrity attributes are incomplete");
   check(!/<script\b[^>]*src="https?:/i.test(html), "remote executable scripts are not allowed");
   check(!html.includes("?v=") && !html.includes("?ver="), "query-string cache busting remains on the canonical page");
 }
@@ -155,6 +158,9 @@ function checkArtifact() {
   check(existsSync(join(artifact, "index.html")), "Pages artifact is missing index.html");
   check(existsSync(join(artifact, "CNAME")), "Pages artifact is missing CNAME");
   check(existsSync(join(artifact, "assets")), "Pages artifact is missing assets");
+  check(existsSync(join(artifact, "site-revision.json")), "Pages artifact is missing site-revision.json");
+  check(existsSync(join(artifact, "styles.8a6775e69351.css")), "Pages artifact is missing the immutable stylesheet");
+  check(existsSync(join(artifact, "script.8d644fa8d579.js")), "Pages artifact is missing the immutable runtime");
 }
 
 if (["all", "html", "parity", "links", "a11y", "integrity"].includes(mode)) checkHtml();

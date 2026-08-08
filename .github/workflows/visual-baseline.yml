@@ -1,0 +1,51 @@
+name: Chromium visual baseline
+
+on:
+  workflow_dispatch:
+    inputs:
+      update_snapshots:
+        description: Generate visual baselines for the checked-out branch
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-baseline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout requested branch
+        uses: actions/checkout@v4.2.2
+      - name: Use pinned Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install locked toolchain
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run visual suite
+        run: |
+          if [ "${{ inputs.update_snapshots }}" = "true" ]; then
+            npx playwright test --update-snapshots
+          else
+            npm run check:visual
+          fi
+      - name: Upload visual baselines and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: portfolio-visual-baselines
+          path: |
+            tests/visual/__screenshots__
+            test-results
+            playwright-report
+          if-no-files-found: ignore
