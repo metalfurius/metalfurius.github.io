@@ -27,8 +27,12 @@ async function assertNoHorizontalOverflow(page) {
   expect(dimensions.scrollWidth, `horizontal overflow at ${dimensions.clientWidth}px`).toBeLessThanOrEqual(dimensions.clientWidth + 1);
 }
 
-async function chooseLanguage(page, language) {
-  if (language === "es") await page.locator("#lang-es").click();
+async function chooseLanguage(page, language, viewportWidth) {
+  if (language === "es") {
+    if (viewportWidth <= 768) await page.locator(".menu-toggle").click();
+    await page.locator("#lang-es").click();
+    if (viewportWidth <= 768) await page.locator(".menu-toggle").click();
+  }
   await expect(page.locator("html")).toHaveAttribute("lang", language);
 }
 
@@ -37,7 +41,7 @@ for (const language of ["en", "es"]) {
     test(`${language} ${viewport.width}px baseline and core journeys`, async ({ page }) => {
       await page.setViewportSize(viewport);
       await page.goto("/", { waitUntil: "domcontentloaded" });
-      await chooseLanguage(page, language);
+      await chooseLanguage(page, language, viewport.width);
       await waitForStablePage(page);
 
       await expect(page.locator(".hero-content")).toBeVisible();
