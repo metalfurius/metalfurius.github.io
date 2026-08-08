@@ -10,10 +10,11 @@ const viewports = [
 async function waitForStablePage(page) {
   await page.evaluate(async () => {
     await document.fonts.ready;
-    await Promise.all([...document.images].map((image) => image.complete ? undefined : new Promise((resolve) => {
+    const imagesReady = Promise.all([...document.images].map((image) => image.complete ? undefined : new Promise((resolve) => {
       image.addEventListener("load", resolve, { once: true });
       image.addEventListener("error", resolve, { once: true });
     })));
+    await Promise.race([imagesReady, new Promise((resolve) => setTimeout(resolve, 2_000))]);
   });
   await page.waitForTimeout(100);
 }
@@ -35,7 +36,7 @@ for (const language of ["en", "es"]) {
   for (const viewport of viewports) {
     test(`${language} ${viewport.width}px baseline and core journeys`, async ({ page }) => {
       await page.setViewportSize(viewport);
-      await page.goto("/", { waitUntil: "networkidle" });
+      await page.goto("/", { waitUntil: "domcontentloaded" });
       await chooseLanguage(page, language);
       await waitForStablePage(page);
 
@@ -83,7 +84,7 @@ for (const viewport of viewports) {
       colorScheme: "dark"
     });
     const page = await context.newPage();
-    await page.goto("/", { waitUntil: "networkidle" });
+    await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.locator(".hero-content")).toBeVisible();
     await expect(page.locator("#projects")).toBeVisible();
     await expect(page.locator("#primary-navigation")).toBeVisible();
@@ -97,8 +98,8 @@ for (const viewport of viewports) {
 test("reduced motion removes transitions and keeps the journey usable", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/", { waitUntil: "networkidle" });
-  await expect(page).toHaveCSS("scroll-behavior", "auto");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
   const motion = await page.locator(".project-card").first().evaluate((element) => {
     const style = getComputedStyle(element);
     const toSeconds = (value) => value.endsWith("ms") ? Number.parseFloat(value) / 1000 : Number.parseFloat(value);
