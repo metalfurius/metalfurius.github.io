@@ -1,357 +1,319 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#121212">
-  <meta name="description" id="meta-description" data-meta-key="meta-description" content="CodeOverdose portfolio: software development, Unity, web projects, and professional experience by Francisco Javier Hernández Murillo.">
-  <meta name="author" content="Francisco Javier Hernández Murillo">
-  <link rel="canonical" href="https://codeoverdose.es/">
-  <link rel="alternate" hreflang="en" href="https://codeoverdose.es/">
-  <link rel="alternate" hreflang="es" href="https://codeoverdose.es/">
-  <link rel="alternate" hreflang="x-default" href="https://codeoverdose.es/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="CodeOverdose">
-  <meta property="og:url" content="https://codeoverdose.es/">
-  <meta property="og:title" id="og-title" data-meta-key="page-title" content="Francisco Javier - Portfolio">
-  <meta property="og:description" id="og-description" data-meta-key="meta-description" content="CodeOverdose portfolio: software development, Unity, web projects, and professional experience by Francisco Javier Hernández Murillo.">
-  <meta property="og:image" content="https://codeoverdose.es/assets/logo.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" id="twitter-title" data-meta-key="page-title" content="Francisco Javier - Portfolio">
-  <meta name="twitter:description" id="twitter-description" data-meta-key="meta-description" content="CodeOverdose portfolio: software development, Unity, web projects, and professional experience by Francisco Javier Hernández Murillo.">
-  <meta name="twitter:image" content="https://codeoverdose.es/assets/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francisco Javier - Portfolio</title>
-  <link rel="icon" href="assets/logo.ico" type="image/x-icon">
-  <meta name="codeoverdose:revision" content="8a6775e69351-8d644fa8d579">
-  <link rel="stylesheet" href="styles.8a6775e69351.css">
-  <script src="script.8d644fa8d579.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/assets/logo.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content" data-translate="skip-link">Skip to content</a>
 
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Primary navigation" data-aria-label="primary-nav-label">
-      <a class="brand" href="#home" aria-label="CodeOverdose home" data-aria-label="brand-home">CodeOverdose</a>
-      <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open menu" data-aria-label="menu-open">
-        <span class="menu-icon" aria-hidden="true">☰</span>
-        <span class="menu-label" data-translate="menu-open">Open menu</span>
-      </button>
-      <div class="nav-panel" id="primary-navigation">
-        <ul class="nav-links">
-          <li><a href="#home" class="active" aria-current="page" data-section="home" data-translate="nav-home">Home</a></li>
-          <li><a href="#about" data-section="about" data-translate="nav-about">About</a></li>
-          <li><a href="#skills" data-section="skills" data-translate="nav-skills">Skills</a></li>
-          <li><a href="#projects" data-section="projects" data-translate="nav-projects">Projects</a></li>
-          <li><a href="#experience" data-section="experience" data-translate="nav-experience">Experience</a></li>
-          <li><a href="#contact" data-section="contact" data-translate="nav-contact">Contact</a></li>
+<div class="preloader-wrapper">
+  <div class="terminal-loader">
+    <div class="terminal-header">
+      <div class="terminal-title">Status</div>
+      <div class="terminal-controls">
+        <div class="control close"></div>
+        <div class="control minimize"></div>
+        <div class="control maximize"></div>
+      </div>
+    </div>
+    <div class="text">Loading...</div>
+  </div>
+</div>
+
+<nav class="sticky-nav">
+  <div class="nav-name">CodeOverdose</div>
+  <ul>
+    <li><a href="#home" class="active" data-translate="nav-home">Home</a></li>
+    <li><a href="#about" data-translate="nav-about">About</a></li>
+    <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
+    <li><a href="#projects" data-translate="nav-projects">Personal Projects</a></li>
+    <li><a href="#experience" data-translate="nav-experience">Experience</a></li>
+    <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
+  </ul>
+  <div class="language-switcher">
+    <button id="lang-en" class="lang-button active" data-lang="en">EN</button>
+    <button id="lang-es" class="lang-button" data-lang="es">ES</button>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div id="particles-js" class="particles-container"></div>
+  <div class="hero-content">
+    <h1>Francisco Javier</h1>
+    <p class="tagline">Crafting Engaging Experiences | Junior Software Developer | Unity & Web Enthusiast</p>
+    <a id="download-cv" href="#" class="learn-more">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+      <span class="button-text" data-translate="download-cv">Download CV</span>
+    </a>
+  </div>
+  <a href="#about" class="scroll-down-arrow" aria-label="Scroll down">
+    <span></span>
+  </a>
+</section>
+
+<section id="about" class="section">
+  <div class="section-content about-content">
+    <div class="about-logo">
+      <i class="fas fa-dice-d20"></i>
+      <div id="about-dice-result" class="about-dice-result"></div>
+    </div>
+    <h2 data-translate="about-title">About Me</h2>
+    <div class="about-text">
+      <p data-translate="about-p1">Hi, I'm Francisco Javier, a passionate software developer blending game development with web technologies. My journey began with a curiosity for creating worlds, leading me to master C# in Unity and build interactive experiences.</p>
+      <p data-translate="about-p2">Now, I’m diving into web development, mastering JavaScript, HTML, and CSS to craft intuitive web applications. My game design roots inspire me to bring creativity and interactivity to every project.</p>
+      <p data-translate="about-p3">My approach is user-centered—I strive for interfaces that are both beautiful and functional. Outside of coding, I craft custom resin dice and lose myself in D&D campaigns, fueling my creativity and sharpening my problem-solving skills.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="section-content">
+    <h2 data-translate="skills-title">Skills</h2>
+    <div class="skills-list">
+      <div class="skill-category">
+        <h3><i class="fas fa-code skill-icon"></i> <span data-translate="skill-web-title">Web Development</span></h3>
+        <ul>
+          <li data-translate="skill-web-js"><strong>JavaScript:</strong> Used to build interactive features in my Task Management Application.</li>
+          <li data-translate="skill-web-html"><strong>HTML5:</strong> Proficient in creating semantic and accessible web structures.</li>
+          <li data-translate="skill-web-css"><strong>CSS3:</strong> Skilled in styling and layout techniques, including Flexbox and Grid.</li>
         </ul>
-        <div class="language-switcher" role="group" aria-label="Language" data-aria-label="language-label">
-          <button id="lang-en" class="lang-button active" type="button" data-lang="en" aria-label="Switch to English" aria-pressed="true" data-aria-label="lang-en-aria">EN</button>
-          <button id="lang-es" class="lang-button" type="button" data-lang="es" aria-label="Switch to Spanish" aria-pressed="false" data-aria-label="lang-es-aria">ES</button>
-        </div>
       </div>
-    </nav>
-  </header>
-
-  <main id="main-content">
-    <section id="home" class="hero" aria-labelledby="hero-title">
-      <div class="hero-backdrop" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="eyebrow" data-translate="hero-eyebrow">CodeOverdose portfolio</p>
-        <h1 id="hero-title">Francisco Javier</h1>
-        <p class="tagline" data-translate="tagline">Crafting engaging experiences | Junior software developer | Unity &amp; web enthusiast</p>
-        <div class="hero-actions">
-          <a id="download-cv" href="CV%20Francisco%20Javier%20Hern%C3%A1ndez%20Murillo%20English.pdf" class="button button-primary" download data-translate="download-cv">Download CV</a>
-          <a href="#projects" class="button button-secondary" data-translate="explore-projects">Explore projects</a>
-        </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-gamepad skill-icon"></i> <span data-translate="skill-languages-title">Programming Languages</span></h3>
+        <ul>
+          <li data-translate="skill-languages-cs"><strong>C#:</strong> Leveraged C# to develop VR interactions in Unity.</li>
+          <li data-translate="skill-languages-python"><strong>Python:</strong> Experienced in scripting and automation.</li>
+          <li data-translate="skill-languages-java"><strong>Java:</strong> Familiar with object-oriented programming concepts.</li>
+        </ul>
       </div>
-      <a href="#about" class="scroll-down-arrow" aria-label="Scroll to the About section" data-aria-label="scroll-down"><span aria-hidden="true">⌄</span></a>
-    </section>
-
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="section-content about-content">
-        <div class="about-logo">
-          <button class="dice-button" type="button" aria-label="Roll the D20" data-aria-label="roll-dice" aria-describedby="about-dice-result"><span aria-hidden="true">◈</span></button>
-          <p id="about-dice-result" class="about-dice-result" role="status" aria-live="polite"></p>
-        </div>
-        <h2 id="about-title" data-translate="about-title">About me</h2>
-        <div class="about-text">
-          <p data-translate="about-p1">Hi, I'm Francisco Javier, a software developer who blends game development with web technologies. My journey began with a curiosity for creating worlds, leading me to work with C# in Unity and build interactive experiences.</p>
-          <p data-translate="about-p2">Now I'm developing my web practice with JavaScript, HTML, and CSS to craft intuitive applications. My game design roots inspire me to bring creativity and interactivity to each project.</p>
-          <p data-translate="about-p3">My approach is user-centred: I aim for interfaces that are both clear and functional. Outside coding, I craft custom resin dice and enjoy D&amp;D campaigns, which keep my creativity and problem-solving skills active.</p>
-        </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-tools skill-icon"></i> <span data-translate="skill-tools-title">Tools & Platforms</span></h3>
+        <ul>
+          <li data-translate="skill-tools-git"><strong>Git:</strong> Proficient in version control using Git and GitHub.</li>
+          <li data-translate="skill-tools-firebase"><strong>Firebase:</strong> Integrated Firebase for secure data persistence in a mobile game.</li>
+          <li data-translate="skill-tools-unity"><strong>Unity:</strong> Extensive experience in game and VR development using Unity.</li>
+        </ul>
       </div>
-    </section>
-
-    <section id="skills" class="section" aria-labelledby="skills-title">
-      <div class="section-content">
-        <h2 id="skills-title" data-translate="skills-title">Skills</h2>
-        <div class="skills-list">
-          <article class="skill-category">
-            <h3><span class="skill-icon" aria-hidden="true">&lt;/&gt;</span> <span data-translate="skill-web-title">Web development</span></h3>
-            <ul>
-              <li data-translate="skill-web-js"><strong>JavaScript:</strong> Used to build interactive features in my task management application.</li>
-              <li data-translate="skill-web-html"><strong>HTML5:</strong> Proficient in creating semantic and accessible web structures.</li>
-              <li data-translate="skill-web-css"><strong>CSS3:</strong> Skilled in styling and layout techniques, including Flexbox and Grid.</li>
-            </ul>
-          </article>
-          <article class="skill-category">
-            <h3><span class="skill-icon" aria-hidden="true">✦</span> <span data-translate="skill-languages-title">Programming languages</span></h3>
-            <ul>
-              <li data-translate="skill-languages-cs"><strong>C#:</strong> Used to develop VR interactions in Unity.</li>
-              <li data-translate="skill-languages-python"><strong>Python:</strong> Experienced in scripting and automation.</li>
-              <li data-translate="skill-languages-java"><strong>Java:</strong> Familiar with object-oriented programming concepts.</li>
-            </ul>
-          </article>
-          <article class="skill-category">
-            <h3><span class="skill-icon" aria-hidden="true">⚙</span> <span data-translate="skill-tools-title">Tools &amp; platforms</span></h3>
-            <ul>
-              <li data-translate="skill-tools-git"><strong>Git:</strong> Proficient in version control using Git and GitHub.</li>
-              <li data-translate="skill-tools-firebase"><strong>Firebase:</strong> Used for data persistence in a mobile game.</li>
-              <li data-translate="skill-tools-unity"><strong>Unity:</strong> Experience in game and VR development using Unity.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <div class="section-content">
-        <h2 id="projects-title" data-translate="projects-title">Personal projects</h2>
-        <div class="project-grid">
-          <article class="project-card" data-project="project-1">
-            <img src="assets/2.png" alt="Personal portfolio website preview" width="1900" height="964" loading="lazy" decoding="async">
-            <div class="project-card-body">
-              <h3 data-translate="project-1-title">Personal portfolio website</h3>
-              <p data-translate="project-1-desc">Responsive design showcasing selected projects and experience.</p>
-              <div class="project-card-actions">
-                <button class="button button-secondary project-button" type="button" data-translate="learn-more">Learn more</button>
-                <a href="https://codeoverdose.es/" target="_blank" rel="noopener noreferrer" data-translate="project-1-visit">Visit</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-project="project-2">
-            <img src="assets/1.png" alt="Taskify task management application preview" width="1900" height="961" loading="lazy" decoding="async">
-            <div class="project-card-body">
-              <h3><span data-translate="project-2-title">Taskify task management</span> <span class="wip-tag" data-translate="wip-tag">WIP</span></h3>
-              <p data-translate="project-2-desc">Task management application using JavaScript and Firestore for persistence.</p>
-              <div class="project-card-actions">
-                <button class="button button-secondary project-button" type="button" data-translate="learn-more">Learn more</button>
-                <a href="https://codeoverdose.es/Tasks/" target="_blank" rel="noopener noreferrer" data-translate="project-2-demo">Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-project="project-3">
-            <img src="assets/cc.webp" alt="Credit Cleaners gameplay" width="600" height="338" loading="lazy" decoding="async">
-            <div class="project-card-body">
-              <h3 data-translate="project-3-title">Credit Cleaners</h3>
-              <p data-translate="project-3-desc">Arcade-style game developed during Sevilla Jam.</p>
-              <div class="project-card-actions">
-                <button class="button button-secondary project-button" type="button" data-translate="learn-more">Learn more</button>
-                <a href="https://quicorax.itch.io/creditcleaners" target="_blank" rel="noopener noreferrer" data-translate="project-3-play">Play</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-project="project-4">
-            <img src="assets/2048.webp" alt="2048 game board" width="425" height="239" loading="lazy" decoding="async">
-            <div class="project-card-body">
-              <h3 data-translate="project-4-title">2048</h3>
-              <p data-translate="project-4-desc">Classic puzzle game recreated with a test-driven development approach.</p>
-              <div class="project-card-actions">
-                <button class="button button-secondary project-button" type="button" data-translate="learn-more">Learn more</button>
-                <a href="https://github.com/metalfurius/project2048" target="_blank" rel="noopener noreferrer" data-translate="view-github">GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-project="project-5">
-            <img src="assets/luckbound_concept.jpg" alt="Luckbound concept art" width="1200" height="800" loading="lazy" decoding="async">
-            <div class="project-card-body">
-              <h3><span data-translate="project-5-title">Luckbound</span> <span class="wip-tag" data-translate="wip-tag">WIP</span></h3>
-              <p data-translate="project-5-desc">Team-based dungeon crawler RPG in active development.</p>
-              <button class="button button-secondary project-button" type="button" data-translate="learn-more">Learn more</button>
-            </div>
-          </article>
-
-          <article class="project-card" data-project="project-6">
-            <img src="assets/gym-icon.png" alt="Gym workout tracker icon" width="512" height="512" loading="lazy" decoding="async">
-            <div class="project-card-body">
-              <h3 data-translate="project-6-title">Gym workout tracker</h3>
-              <p data-translate="project-6-desc">Workout tracking with bounded long-term progress history and offline continuity.</p>
-              <div class="project-card-actions">
-                <button class="button button-secondary project-button" type="button" data-translate="learn-more">Learn more</button>
-                <a href="https://codeoverdose.es/gym/" target="_blank" rel="noopener noreferrer" data-translate="project-6-visit">Open Gym</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section" aria-labelledby="experience-title">
-      <div class="section-content">
-        <h2 id="experience-title" data-translate="experience-title">Experience</h2>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <h3 data-translate="experience-vr-title">VR Unity developer</h3>
-              <p class="timeline-company" data-translate="experience-vr-company">Visionary Tool (Nov 2023 - May 2024)</p>
-              <ul>
-                <li data-translate="experience-vr-li1">Developed interactive UI systems and real-time network features.</li>
-                <li data-translate="experience-vr-li2">Created user-friendly interfaces for VR and desktop platforms.</li>
-                <li data-translate="experience-vr-li3">Improved cross-platform compatibility with responsive design.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <h3 data-translate="experience-intern-title">Unity developer intern</h3>
-              <p class="timeline-company" data-translate="experience-intern-company">FunTech Rocket (Apr 2023 - Jun 2023)</p>
-              <ul>
-                <li data-translate="experience-intern-li1">Implemented event-driven programming patterns.</li>
-                <li data-translate="experience-intern-li2">Integrated Firebase for authentication and data persistence.</li>
-                <li data-translate="experience-intern-li3">Enhanced code quality through refactoring.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section" aria-labelledby="contact-title">
-      <div class="section-content contact-content">
-        <h2 id="contact-title" data-translate="contact-title">Contact</h2>
-        <p class="contact-intro" data-translate="contact-intro">Find me on these public profiles or send an email.</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/frahermur/" target="_blank" rel="noopener noreferrer" class="social-card linkedin" aria-label="LinkedIn" data-aria-label="social-linkedin"><span aria-hidden="true">in</span><span data-translate="social-linkedin">LinkedIn</span></a>
-          <a href="https://github.com/metalfurius" target="_blank" rel="noopener noreferrer" class="social-card github" aria-label="GitHub" data-aria-label="social-github"><span aria-hidden="true">⌘</span><span data-translate="social-github">GitHub</span></a>
-          <a href="mailto:contact@codeoverdose.es" class="social-card email" aria-label="Email" data-aria-label="social-email"><span aria-hidden="true">✉</span><span data-translate="social-email">Email</span></a>
-          <a href="https://www.artstation.com/codeoverdose" target="_blank" rel="noopener noreferrer" class="social-card artstation" aria-label="ArtStation" data-aria-label="social-artstation"><span aria-hidden="true">A</span><span data-translate="social-artstation">ArtStation</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <dialog class="project-modal" id="project-1" aria-labelledby="project-1-modal-title">
-    <div class="modal-content">
-      <button class="close-modal" type="button" aria-label="Close dialog" data-aria-label="close-dialog"><span aria-hidden="true">×</span><span class="sr-only" data-translate="close-dialog">Close dialog</span></button>
-      <h2 id="project-1-modal-title" data-translate="project-1-modal-title">Personal portfolio website</h2>
-      <img src="assets/2.png" alt="Personal portfolio website detail" width="1900" height="964" loading="lazy" decoding="async">
-      <p data-translate="project-1-modal-desc">This website is a project built with HTML, CSS, and JavaScript. It showcases responsive design, bilingual content, and accessible project details.</p>
-      <ul>
-        <li data-translate="project-1-feature-1">Smooth scrolling navigation</li>
-        <li data-translate="project-1-feature-2">Interactive project cards with dialogs</li>
-        <li data-translate="project-1-feature-3">Progressive enhancement with reduced-motion support</li>
-        <li data-translate="project-1-feature-4">Responsive design for mobile and desktop</li>
-      </ul>
-      <p data-translate="project-1-tech"><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-      <a href="https://codeoverdose.es/" class="button button-primary" target="_blank" rel="noopener noreferrer" data-translate="project-1-visit">Visit website</a>
-      <a href="https://github.com/metalfurius/metalfurius.github.io" class="button button-secondary" target="_blank" rel="noopener noreferrer" data-translate="view-github">View on GitHub</a>
     </div>
-  </dialog>
+  </div>
+</section>
 
-  <dialog class="project-modal" id="project-2" aria-labelledby="project-2-modal-title">
-    <div class="modal-content">
-      <button class="close-modal" type="button" aria-label="Close dialog" data-aria-label="close-dialog"><span aria-hidden="true">×</span><span class="sr-only" data-translate="close-dialog">Close dialog</span></button>
-      <h2 id="project-2-modal-title"><span data-translate="project-2-modal-title">Taskify task management</span> <span class="wip-tag" data-translate="wip-tag">WIP</span></h2>
-      <img src="assets/1.png" alt="Taskify task management application detail" width="1900" height="961" loading="lazy" decoding="async">
-      <p data-translate="project-2-modal-desc">A JavaScript task management application using Firestore for persistence and a clean, responsive interface.</p>
-      <ul>
-        <li data-translate="project-2-feature-1">Add, edit, and delete tasks</li>
-        <li data-translate="project-2-feature-2">Mark tasks as complete</li>
-        <li data-translate="project-2-feature-3">Firestore persistence</li>
-        <li data-translate="project-2-feature-5">Responsive design</li>
-      </ul>
-      <p data-translate="project-2-tech"><strong>Technologies:</strong> JavaScript, HTML, CSS, Firestore</p>
-      <a href="https://codeoverdose.es/Tasks/" class="button button-primary" target="_blank" rel="noopener noreferrer" data-translate="project-2-demo">View demo</a>
-      <a href="https://github.com/metalfurius/Tasks" class="button button-secondary" target="_blank" rel="noopener noreferrer" data-translate="view-github">View on GitHub</a>
+<section id="projects" class="section">
+  <div class="section-content">
+    <h2 data-translate="projects-title">Personal Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" data-project="project-1">
+        <img src="/assets/2.png" alt="Personal Portfolio Website">
+        <h3 data-translate="project-1-title">Personal Portfolio Website</h3>
+        <p data-translate="project-1-desc">Responsive design showcasing my projects...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
+      </div>
+
+      <div class="project-card" data-project="project-2">
+        <img src="assets/1.png" alt="Task Management Application">
+        <h3>
+          <span data-translate="project-2-title">Task Management Application</span>
+          <span class="wip-tag" data-translate="wip-tag">WIP</span>
+        </h3>
+        <p data-translate="project-2-desc">Interactive web app with local storage...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
+      </div>
+
+      <div class="project-card" data-project="project-3">
+        <img src="assets/cc.gif" alt="Credit Cleaners">
+        <h3 data-translate="project-3-title">Credit Cleaners</h3>
+        <p data-translate="project-3-desc">Juego arcade desarrollado durante Sevilla Jam...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
+      </div>
+
+      <div class="project-card" data-project="project-4">
+        <img src="assets/2048.gif" alt="2048 Game">
+        <h3 data-translate="project-4-title">2048</h3>
+        <p data-translate="project-4-desc">Juego de puzzle clásico recreado con TDD...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
+      </div>
+
+      <div class="project-card" data-project="project-5">
+        <img src="assets/luckbound_concept.png" alt="Luckbound Concept Art">
+        <h3>
+          <span data-translate="project-5-title">Luckbound</span>
+          <span class="wip-tag" data-translate="wip-tag">WIP</span>
+        </h3>
+        <p data-translate="project-5-desc">Team-based dungeon crawler RPG with random generation...</p>
+        <button class="button button-secondary project-button" data-translate="learn-more">Learn More</button>
+      </div>
     </div>
-  </dialog>
+  </div>
+</section>
 
-  <dialog class="project-modal" id="project-3" aria-labelledby="project-3-modal-title">
-    <div class="modal-content">
-      <button class="close-modal" type="button" aria-label="Close dialog" data-aria-label="close-dialog"><span aria-hidden="true">×</span><span class="sr-only" data-translate="close-dialog">Close dialog</span></button>
-      <h2 id="project-3-modal-title" data-translate="project-3-modal-title">Credit Cleaners</h2>
-      <img src="assets/cc.webp" alt="Credit Cleaners gameplay detail" width="600" height="338" loading="lazy" decoding="async">
-      <p data-translate="project-3-modal-desc">Credit Cleaners is an arcade-style game developed during Sevilla Jam. I collaborated on game flow, player animations, the camera system, and player controls.</p>
-      <ul>
-        <li data-translate="project-3-feature-1">Arcade-style gameplay</li>
-        <li data-translate="project-3-feature-2">Obstacle navigation and cleaning mechanics</li>
-        <li data-translate="project-3-feature-3">Dynamic level progression</li>
-        <li data-translate="project-3-feature-4">First place at Sevilla Jam</li>
-      </ul>
-      <p data-translate="project-3-tech"><strong>Technologies:</strong> Unity, C#</p>
-      <a href="https://quicorax.itch.io/creditcleaners" class="button button-primary" target="_blank" rel="noopener noreferrer" data-translate="project-3-play">Play game</a>
+<section id="experience" class="section">
+  <div class="section-content">
+    <h2 data-translate="experience-title">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 data-translate="experience-vr-title">VR Unity Developer</h3>
+          <p class="timeline-company" data-translate="experience-vr-company">Visionary Tool (Nov 2023 - May 2024)</p>
+          <ul>
+            <li data-translate="experience-vr-li1">Developed interactive UI systems and real-time network features.</li>
+            <li data-translate="experience-vr-li2">Created user-friendly interfaces for VR and desktop platforms.</li>
+            <li data-translate="experience-vr-li3">Improved cross-platform compatibility with responsive design.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 data-translate="experience-intern-title">Unity Developer Intern</h3>
+          <p class="timeline-company" data-translate="experience-intern-company">FunTech Rocket (Apr 2023 - Jun 2023)</p>
+          <ul>
+            <li data-translate="experience-intern-li1">Implemented event-driven programming patterns.</li>
+            <li data-translate="experience-intern-li2">Integrated Firebase for authentication and data persistence.</li>
+            <li data-translate="experience-intern-li3">Enhanced code quality through refactoring.</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </dialog>
+  </div>
+</section>
 
-  <dialog class="project-modal" id="project-4" aria-labelledby="project-4-modal-title">
-    <div class="modal-content">
-      <button class="close-modal" type="button" aria-label="Close dialog" data-aria-label="close-dialog"><span aria-hidden="true">×</span><span class="sr-only" data-translate="close-dialog">Close dialog</span></button>
-      <h2 id="project-4-modal-title" data-translate="project-4-modal-title">2048</h2>
-      <img src="assets/2048.webp" alt="2048 game board detail" width="425" height="239" loading="lazy" decoding="async">
-      <p data-translate="project-4-modal-desc">I recreated the classic 2048 sliding block puzzle game from scratch using a test-driven development approach, including game logic, board updates, and scoring.</p>
-      <ul>
-        <li data-translate="project-4-feature-1">Classic 2048 gameplay mechanics</li>
-        <li data-translate="project-4-feature-2">Test-driven development approach</li>
-        <li data-translate="project-4-feature-3">Dynamic board with visual updates</li>
-        <li data-translate="project-4-feature-4">Real-time scoring system</li>
-      </ul>
-      <p data-translate="project-4-tech"><strong>Technologies:</strong> Unity, C#</p>
-      <a href="https://github.com/metalfurius/project2048" class="button button-primary" target="_blank" rel="noopener noreferrer" data-translate="view-github">View on GitHub</a>
+<section id="contact" class="section">
+  <div class="section-content">
+    <h2 data-translate="contact-title">Contact</h2>
+    <div class="main">
+      <div class="up">
+        <a href="https://www.linkedin.com/in/frahermur/" target="_blank" class="card1" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/metalfurius" target="_blank" class="card2" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="down">
+        <a href="mailto:contact@codeoverdose.es" class="card3" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.artstation.com/codeoverdose" target="_blank" class="card4" aria-label="ArtStation">
+          <i class="fab fa-artstation"></i>
+        </a>
+      </div>
     </div>
-  </dialog>
+  </div>
+</section>
 
-  <dialog class="project-modal" id="project-5" aria-labelledby="project-5-modal-title">
-    <div class="modal-content">
-      <button class="close-modal" type="button" aria-label="Close dialog" data-aria-label="close-dialog"><span aria-hidden="true">×</span><span class="sr-only" data-translate="close-dialog">Close dialog</span></button>
-      <h2 id="project-5-modal-title"><span data-translate="project-5-modal-title">Luckbound</span> <span class="wip-tag" data-translate="wip-tag">WIP</span></h2>
-      <img src="assets/luckbound_concept.jpg" alt="Luckbound concept art detail" width="1200" height="800" loading="lazy" decoding="async">
-      <p data-translate="project-5-modal-desc">Luckbound is a dungeon crawler RPG in active development as part of a collaborative team project.</p>
-      <p data-translate="project-5-modal-features-title"><strong>Key features in development:</strong></p>
-      <ul>
-        <li data-translate="project-5-feature-1">Randomized dungeon layouts</li>
-        <li data-translate="project-5-feature-2">Multiple character classes</li>
-        <li data-translate="project-5-feature-3">Crafting and meta-progression systems</li>
-        <li data-translate="project-5-feature-4">Skill check mechanics impacting gameplay</li>
-        <li data-translate="project-5-feature-5">Narrative elements and NPC interactions</li>
-        <li data-translate="project-5-feature-6">Team-based development effort</li>
-      </ul>
-      <p data-translate="project-5-tech"><strong>Technologies:</strong> Unity, C#</p>
-    </div>
-  </dialog>
+<div class="project-modal" id="project-1">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <h2 data-translate="project-1-modal-title">Personal Portfolio Website</h2>
+    <img src="/assets/2.png" alt="Project 1 Detail">
+    <p data-translate="project-1-modal-desc">This website itself is a project!  Built with HTML, CSS, and JavaScript, it showcases my ability to create responsive, modern web designs. Key features include:</p>
+    <ul>
+      <li data-translate="project-1-feature-1">Smooth scrolling navigation</li>
+      <li data-translate="project-1-feature-2">Interactive project cards with modals</li>
+      <li data-translate="project-1-feature-3">Scroll-triggered animations</li>
+      <li data-translate="project-1-feature-4">Responsive design for mobile and desktop</li>
+    </ul>
+    <p data-translate="project-1-tech"><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+    <a href="#" class="button button-primary" target="_blank" data-translate="project-1-visit">Visit Website</a>
+    <a href="https://github.com/metalfurius/metalfurius.github.io" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+  </div>
+</div>
 
-  <dialog class="project-modal" id="project-6" aria-labelledby="project-6-modal-title">
-    <div class="modal-content">
-      <button class="close-modal" type="button" aria-label="Close dialog" data-aria-label="close-dialog"><span aria-hidden="true">×</span><span class="sr-only" data-translate="close-dialog">Close dialog</span></button>
-      <h2 id="project-6-modal-title" data-translate="project-6-modal-title">Gym workout tracker</h2>
-      <img src="assets/gym-icon.png" alt="Gym workout tracker icon detail" width="512" height="512" loading="lazy" decoding="async">
-      <p data-translate="project-6-modal-desc">A JavaScript and Firebase PWA for routines, sessions, Quick Log, and progress ranges backed by bounded local-first session history.</p>
-      <ul>
-        <li data-translate="project-6-feature-1">Long-term 3m, 6m, 1y, and all-history progress ranges</li>
-        <li data-translate="project-6-feature-2">Offline and restart continuity for saved session history</li>
-        <li data-translate="project-6-feature-3">Responsive desktop and mobile workout flows</li>
-        <li data-translate="project-6-feature-4">Revisioned service-worker updates with offline-safe release transitions</li>
-      </ul>
-      <p data-translate="project-6-tech"><strong>Technologies:</strong> JavaScript, Firebase, IndexedDB, PWA</p>
-      <a href="https://codeoverdose.es/gym/" class="button button-primary" target="_blank" rel="noopener noreferrer" data-translate="project-6-visit">Open Gym</a>
-      <a href="https://github.com/metalfurius/gym" class="button button-secondary" target="_blank" rel="noopener noreferrer" data-translate="view-github">View on GitHub</a>
-    </div>
-  </dialog>
+<div class="project-modal" id="project-2">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <h2>
+      <span data-translate="project-2-modal-title">Task Management Application</span>
+      <span class="wip-tag" data-translate="wip-tag">WIP</span>
+    </h2>
+    <img src="/assets/1.png" alt="Project 2 Detail">
+    <p data-translate="project-2-modal-desc">A web application built with JavaScript to manage tasks efficiently.  It utilizes local storage to persist data and offers a clean, intuitive user interface. I later integrated Firebase for enhanced data management.</p>
+    <ul>
+      <li data-translate="project-2-feature-1">Add, edit, and delete tasks</li>
+      <li data-translate="project-2-feature-2">Mark tasks as complete</li>
+      <li data-translate="project-2-feature-3">Local storage persistence</li>
+      <li data-translate="project-2-feature-5">Responsive design</li>
+    </ul>
+    <p data-translate="project-2-tech"><strong>Technologies:</strong> JavaScript, HTML, CSS, Local Storage</p>
+    <a href="https://codeoverdose.es/Tasks/" class="button button-primary" target="_blank" data-translate="project-2-demo">View Demo</a>
+    <a href="https://github.com/metalfurius/Tasks" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub</a>
+  </div>
+</div>
 
-  <footer class="site-footer">
-    <nav class="footer-links" aria-label="Footer navigation" data-aria-label="footer-nav-label">
-      <a href="#experience" data-translate="footer-experience">Career and experience</a>
-      <a id="footer-cv" href="CV%20Francisco%20Javier%20Hern%C3%A1ndez%20Murillo%20English.pdf" download data-translate="footer-cv">Download CV</a>
-      <a href="https://github.com/metalfurius" target="_blank" rel="noopener noreferrer" data-translate="footer-github">GitHub</a>
-      <a href="mailto:contact@codeoverdose.es" data-translate="footer-email">Email</a>
-    </nav>
-    <p data-translate="copyright">© 2026 Francisco Javier Hernández Murillo</p>
-  </footer>
+<div class="project-modal" id="project-3">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <h2 data-translate="project-3-modal-title">Credit Cleaners</h2>
+    <img src="assets/cc.gif" alt="Credit Cleaners">
+    <p data-translate="project-3-modal-desc">"Credit Cleaners" es un juego arcade donde los jugadores deben limpiar un cine lleno de obstáculos mientras ruedan los créditos de la película. Desarrollado durante la Sevilla Jam, cada nivel introduce nuevos desafíos que prueban la velocidad y estrategia del jugador. Colaboré en la programación del flujo del juego, animaciones del jugador, el sistema de cámara y todos los aspectos del control del jugador. ¡También ganamos el primer lugar con este proyecto!</p>
+    <ul>
+      <li data-translate="project-3-feature-1">Jugabilidad estilo arcade</li>
+      <li data-translate="project-3-feature-2">Navegación de obstáculos y mecánicas de limpieza</li>
+      <li data-translate="project-3-feature-3">Progresión dinámica de niveles</li>
+      <li data-translate="project-3-feature-4">Ganador del primer lugar en Sevilla Jam</li>
+    </ul>
+    <p data-translate="project-3-tech"><strong>Tecnologías:</strong> Unity, C#</p>
+    <a href="https://quicorax.itch.io/creditcleaners" class="button button-primary" target="_blank" data-translate="project-3-play">Jugar</a>
+  </div>
+</div>
+
+<div class="project-modal" id="project-4">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <h2 data-translate="project-4-modal-title">2048</h2>
+    <img src="assets/2048.gif" alt="2048 Game">
+    <p data-translate="project-4-modal-desc">Recreé el clásico juego de puzzle 2048 desde cero utilizando la metodología de Desarrollo Guiado por Pruebas (TDD). Desarrollé la lógica del juego, incluyendo movimientos de fichas, fusión y generación de nuevas fichas, con un enfoque en escribir pruebas exhaustivas. Implementé una vista dinámica del tablero con actualizaciones para los colores y números de las fichas. Gestioné el sistema de puntuación con actualizaciones en tiempo real.</p>
+    <ul>
+      <li data-translate="project-4-feature-1">Mecánicas clásicas de 2048</li>
+      <li data-translate="project-4-feature-2">Enfoque de Desarrollo Guiado por Pruebas (TDD)</li>
+      <li data-translate="project-4-feature-3">Tablero dinámico con actualizaciones visuales</li>
+      <li data-translate="project-4-feature-4">Sistema de puntuación en tiempo real</li>
+    </ul>
+    <p data-translate="project-4-tech"><strong>Tecnologías:</strong> Unity, C#</p>
+    <a href="https://github.com/metalfurius/project2048" class="button button-primary" target="_blank" data-translate="view-github">Ver en GitHub</a>
+  </div>
+</div>
+
+<div class="project-modal" id="project-5">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <h2>
+      <span data-translate="project-5-modal-title">Luckbound</span>
+      <span class="wip-tag" data-translate="wip-tag">WIP</span>
+    </h2>
+    <img src="assets/luckbound_concept.png" alt="Luckbound Concept Art Detail">
+    <p data-translate="project-5-modal-desc">Currently developing "Luckbound," a dungeon crawler RPG, as part of a collaborative team project. The goal is to create an engaging experience featuring randomly generated dungeons, distinct character classes, crafting systems, and skill-based challenges. This project is actively in development.</p>
+    <p data-translate="project-5-modal-features-title"><strong>Key Features (In Development):</strong></p>
+    <ul>
+      <li data-translate="project-5-feature-1">Randomized dungeon layouts</li>
+      <li data-translate="project-5-feature-2">Multiple character classes (Warrior, Archer, Mage)</li>
+      <li data-translate="project-5-feature-3">Crafting and meta-progression systems</li>
+      <li data-translate="project-5-feature-4">Skill check mechanics impacting gameplay</li>
+      <li data-translate="project-5-feature-5">Narrative elements and NPC interactions</li>
+      <li data-translate="project-5-feature-6">Team-based development effort</li>
+    </ul>
+    <p data-translate="project-5-tech"><strong>Technologies:</strong> Unity, C#</p>
+    <!-- No public links yet as it's WIP -->
+    <!-- <a href="#" class="button button-primary" target="_blank" data-translate="project-5-play">Play Demo (Coming Soon)</a> -->
+    <!-- <a href="#" class="button button-secondary" target="_blank" data-translate="view-github">View on GitHub (Private)</a> -->
+  </div>
+</div>
+
+<footer>
+  <p data-translate="copyright">© 2025 Francisco Javier Hernández</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
