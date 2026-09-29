@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#11130f" />
+    <title>Archivo restringido · B.E.A.</title>
+    <style id="gate-style">
+      :root { color-scheme: dark; font-family: Arial, Helvetica, sans-serif; background: #11130f; color: #e8e9df; }
+      * { box-sizing: border-box; }
+      body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse at 75% 10%, #253020 0, transparent 40%), #11130f; }
+      body::before { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, transparent 0 3px, #0002 4px); content: ""; opacity: .18; }
+      .gate { position: relative; width: min(100%, 620px); padding: clamp(30px, 7vw, 58px); border: 1px solid #5b644c; background: #1b2019; box-shadow: 0 24px 80px #0007; }
+      .gate::before, .gate::after { position: absolute; width: 15px; height: 15px; border-color: #c2cd91; content: ""; }
+      .gate::before { top: 10px; left: 10px; border-top: 1px solid; border-left: 1px solid; }
+      .gate::after { right: 10px; bottom: 10px; border-right: 1px solid; border-bottom: 1px solid; }
+      .brand, .eyebrow, .ledger, .progress-label { font-family: "Courier New", Courier, monospace; text-transform: uppercase; letter-spacing: .14em; }
+      .brand { display: flex; align-items: center; gap: 12px; margin: 0 0 54px; color: #c2cd91; font-size: 11px; }
+      .brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #718058; border-radius: 50%; letter-spacing: -.07em; }
+      .eyebrow { margin: 0 0 15px; color: #c2cd91; font-size: 10px; }
+      h1 { margin: 0; font-size: clamp(40px, 9vw, 66px); font-weight: 600; letter-spacing: -.065em; line-height: 1.03; }
+      h1 em { color: #c2cd91; font-family: Georgia, serif; font-weight: 400; }
+      #gate-status { max-width: 450px; min-height: 3.5em; margin: 24px 0 32px; color: #bac0af; font-size: 14px; line-height: 1.75; }
+      .ledger { display: flex; justify-content: space-between; gap: 12px; padding-top: 17px; border-top: 1px solid #46503b; color: #9ea88e; font-size: 10px; }
+      .ledger strong { color: #d78d76; font-weight: 400; }
+      .progress-wrap[hidden] { display: none; }
+      .progress-wrap { margin: -10px 0 28px; }
+      .progress-label { display: block; margin-bottom: 9px; color: #9ea88e; font-size: 9px; }
+      progress { display: block; width: 100%; height: 5px; appearance: none; border: 0; background: #3d4635; }
+      progress::-webkit-progress-bar { background: #3d4635; }
+      progress::-webkit-progress-value { background: #c2cd91; }
+      progress::-moz-progress-bar { background: #c2cd91; }
+      noscript { display: block; margin-top: 20px; color: #d78d76; font-size: 13px; }
+      @media (max-width: 520px) { .brand { margin-bottom: 44px; } .ledger { font-size: 8px; } }
+    </style>
+    <script type="module" src="./unlock.js"></script>
+  </head>
+  <body>
+    <main class="gate" aria-labelledby="gate-title">
+      <p class="brand"><span class="brand-mark" aria-hidden="true">BA</span><span>Bureau d’Enquête Affective<br />Archives spéciales</span></p>
+      <p class="eyebrow">Terminal d’authentification · ALG—03.10</p>
+      <h1 id="gate-title">Expediente<br /><em>sellado.</em></h1>
+      <p id="gate-status" role="status" aria-live="polite">Acceso restringido. Utiliza el enlace completo entregado por la agencia.</p>
+      <div class="progress-wrap" id="progress-wrap" hidden><span class="progress-label">Descifrando pruebas</span><progress id="gate-progress" max="100" value="0"></progress></div>
+      <div class="ledger"><span>ARCHIVE Nº 25—ALG—0410</span><strong>CONFIDENTIEL</strong></div>
+      <noscript>Este expediente necesita JavaScript para abrirse.</noscript>
+    </main>
+  </body>
+</html>
