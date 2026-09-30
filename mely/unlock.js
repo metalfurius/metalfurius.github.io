@@ -1,6 +1,6 @@
 // Public loader. The key is supplied only in the URL fragment and is never
 // stored in this file or sent with requests to the server.
-const payloadRoot = "./pack/395c4306c8b8aa46/";
+const payloadRoot = "./pack/df6a77074d67e1a6/";
 const status = document.querySelector("#gate-status");
 const progressWrap = document.querySelector("#progress-wrap");
 const progress = document.querySelector("#gate-progress");
